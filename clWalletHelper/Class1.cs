@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace clWalletHelper
 {
-    public class Class1
+    public class Class12
     {
     }
 }
