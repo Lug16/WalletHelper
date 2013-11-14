@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvcWalletHelper", "mvcWalletHelper\mvcWalletHelper.csproj", "{9D625E3C-D4AD-44BB-84A6-70BB4B011793}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Web.Frontend", "mvcWalletHelper\WalletHelper.Web.Frontend.csproj", "{9D625E3C-D4AD-44BB-84A6-70BB4B011793}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clWalletHelper", "clWalletHelper\clWalletHelper.csproj", "{D35FFA09-6897-423F-A33C-8821F3B14432}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Business", "clWalletHelper\WalletHelper.Business.csproj", "{D35FFA09-6897-423F-A33C-8821F3B14432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.DataAccess", "WalletHelper.DataAccess\WalletHelper.DataAccess.csproj", "{C3CCC777-FC32-4B11-B63A-BB689CBEEA42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Entity", "WalletHelper.Entity\WalletHelper.Entity.csproj", "{489C5E7E-FD2B-4748-BE07-81BC822DAD27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D35FFA09-6897-423F-A33C-8821F3B14432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D35FFA09-6897-423F-A33C-8821F3B14432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D35FFA09-6897-423F-A33C-8821F3B14432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3CCC777-FC32-4B11-B63A-BB689CBEEA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3CCC777-FC32-4B11-B63A-BB689CBEEA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3CCC777-FC32-4B11-B63A-BB689CBEEA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3CCC777-FC32-4B11-B63A-BB689CBEEA42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{489C5E7E-FD2B-4748-BE07-81BC822DAD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489C5E7E-FD2B-4748-BE07-81BC822DAD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489C5E7E-FD2B-4748-BE07-81BC822DAD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489C5E7E-FD2B-4748-BE07-81BC822DAD27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

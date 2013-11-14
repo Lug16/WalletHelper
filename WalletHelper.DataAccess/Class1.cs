@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace clWalletHelper
+namespace WalletHelper.DataAccess
 {
-    public class Class12
+    public class Class1
     {
     }
 }
