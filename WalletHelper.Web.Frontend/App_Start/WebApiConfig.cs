@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace mvcWalletHelper
+namespace WalletHelper.Web.Frontend
 {
     public static class WebApiConfig
     {

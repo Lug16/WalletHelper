@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace mvcWalletHelper
+namespace WalletHelper.Web.Frontend
 {
     public class BundleConfig
     {
