@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="adb969a1-236c-4676-9233-c7e8e22a88b8" ChangeDateTime="11/21/2013 02:55:21">
+    <Property Name="ElementName" Value="[dbo].[Payment].[ScheduledPayment]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Payment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ScheduledPaymentId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b4a3015b-8dbb-4430-a0fa-9ae405a1bcc0" ChangeDateTime="11/21/2013 02:56:43">
+    <Property Name="ElementName" Value="[dbo].[Payment].[PaymentMethod]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Payment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PaymentMethodDetailId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3d30f0e1-671c-48fe-a7b4-ea701067189f" ChangeDateTime="11/21/2013 02:57:10">
+    <Property Name="ElementName" Value="[dbo].[Payment].[ScheduledPaymentId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Payment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ScheduledPayment_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bba809e0-a8d8-4d76-808a-cef437aaf19f" ChangeDateTime="11/21/2013 02:57:17">
+    <Property Name="ElementName" Value="[dbo].[Payment].[PaymentMethodDetailId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Payment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PaymentMethodDetail_Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="26b8e17a-1aa1-4b5b-b9dc-5f2c86b069da" ChangeDateTime="11/21/2013 02:57:20">
+    <Property Name="ElementName" Value="[dbo].[Payment].[UserId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Payment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="User_Id" />
+  </Operation>
+</Operations>

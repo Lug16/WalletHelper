@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.DataAccess", "WalletHelper.DataAccess\WalletHelper.DataAccess.csproj", "{C3CCC777-FC32-4B11-B63A-BB689CBEEA42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Entity", "WalletHelper.Entity\WalletHelper.Entity.csproj", "{489C5E7E-FD2B-4748-BE07-81BC822DAD27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Business", "WalletHelper.Business\WalletHelper.Business.csproj", "{D35FFA09-6897-423F-A33C-8821F3B14432}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Web.Frontend", "WalletHelper.Web.Frontend\WalletHelper.Web.Frontend.csproj", "{9D625E3C-D4AD-44BB-84A6-70BB4B011793}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{68E114F8-5383-4E70-8569-A6E74587E36C}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{68E114
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Web", "WalletHelper.Web\WalletHelper.Web.csproj", "{736C5FCC-2B2B-493C-B52B-A13E15B9CB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Web.Frontend", "WalletHelper.Web.Frontend\WalletHelper.Web.Frontend.csproj", "{148D9F9A-000B-4E16-8E97-B1CA84B7B8C0}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WalletHelper.Database", "WalletHelper.Database\WalletHelper.Database.sqlproj", "{B11B8B50-CB96-4459-8115-9F7BCEBDC323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,14 +40,20 @@ Global
 		{D35FFA09-6897-423F-A33C-8821F3B14432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D35FFA09-6897-423F-A33C-8821F3B14432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D35FFA09-6897-423F-A33C-8821F3B14432}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D625E3C-D4AD-44BB-84A6-70BB4B011793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D625E3C-D4AD-44BB-84A6-70BB4B011793}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D625E3C-D4AD-44BB-84A6-70BB4B011793}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D625E3C-D4AD-44BB-84A6-70BB4B011793}.Release|Any CPU.Build.0 = Release|Any CPU
 		{736C5FCC-2B2B-493C-B52B-A13E15B9CB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{736C5FCC-2B2B-493C-B52B-A13E15B9CB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{736C5FCC-2B2B-493C-B52B-A13E15B9CB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{736C5FCC-2B2B-493C-B52B-A13E15B9CB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148D9F9A-000B-4E16-8E97-B1CA84B7B8C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148D9F9A-000B-4E16-8E97-B1CA84B7B8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148D9F9A-000B-4E16-8E97-B1CA84B7B8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148D9F9A-000B-4E16-8E97-B1CA84B7B8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B11B8B50-CB96-4459-8115-9F7BCEBDC323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B11B8B50-CB96-4459-8115-9F7BCEBDC323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B11B8B50-CB96-4459-8115-9F7BCEBDC323}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B11B8B50-CB96-4459-8115-9F7BCEBDC323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B11B8B50-CB96-4459-8115-9F7BCEBDC323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B11B8B50-CB96-4459-8115-9F7BCEBDC323}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
