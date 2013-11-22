@@ -62,23 +62,35 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Payment.sql" />
-    <Build Include="Schedule.sql" />
-    <Build Include="ScheduledPayment.sql" />
-    <Build Include="PaymentMethodDetail.sql" />
-    <Build Include="PeriodType.sql" />
-    <Build Include="PaymentMethod.sql" />
-    <Build Include="Status.sql" />
-    <Build Include="Hashtag.sql" />
     <Build Include="dbo\Tables\AspNetUsers.sql" />
     <Build Include="dbo\Tables\AspNetRoles.sql" />
     <Build Include="dbo\Tables\__MigrationHistory.sql" />
-    <Build Include="User.sql" />
     <Build Include="dbo\Tables\AspNetUserClaims.sql" />
     <Build Include="dbo\Tables\AspNetUserLogins.sql" />
     <Build Include="dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="dbo\Tables\Capture.sql" />
+    <Build Include="dbo\Tables\City.sql" />
+    <Build Include="dbo\Tables\Hashtag.sql" />
+    <Build Include="dbo\Tables\Payment.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Tables\PaymentMethod.sql" />
+    <Build Include="dbo\Tables\PeriodType.sql" />
+    <Build Include="dbo\Tables\Recording.sql" />
+    <Build Include="dbo\Tables\Status.sql" />
+    <Build Include="dbo\Tables\User.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WalletHelper.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\PaymentMethodDetail.sql" />
+    <Build Include="dbo\Tables\Schedule.sql" />
+    <Build Include="dbo\Tables\ScheduledPayment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WalletHelper.Database.publish.xml" />
   </ItemGroup>
 </Project>
