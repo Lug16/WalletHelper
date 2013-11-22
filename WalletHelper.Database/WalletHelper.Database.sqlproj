@@ -78,6 +78,9 @@
     <Build Include="dbo\Tables\Recording.sql" />
     <Build Include="dbo\Tables\Status.sql" />
     <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\UserNotification.sql" />
+    <Build Include="dbo\Tables\NotificationType.sql" />
+    <Build Include="dbo\Tables\Geolocation.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WalletHelper.Database.refactorlog" />
