@@ -12,9 +12,14 @@ namespace WalletHelper.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class PeriodType
+    public partial class Geolocation
     {
         public int Id { get; set; }
-        public string Description { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
+        public string LocationName { get; set; }
+        public int Payment_Id { get; set; }
+    
+        public virtual Payment Payment { get; set; }
     }
 }

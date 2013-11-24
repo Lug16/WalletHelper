@@ -12,9 +12,16 @@ namespace WalletHelper.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class PeriodType
+    public partial class NotificationType
     {
+        public NotificationType()
+        {
+            this.UserNotification = new HashSet<UserNotification>();
+        }
+    
         public int Id { get; set; }
         public string Description { get; set; }
+    
+        public virtual ICollection<UserNotification> UserNotification { get; set; }
     }
 }

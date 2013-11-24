@@ -12,9 +12,16 @@ namespace WalletHelper.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class PeriodType
+    public partial class Country
     {
-        public int Id { get; set; }
-        public string Description { get; set; }
+        public Country()
+        {
+            this.City = new HashSet<City>();
+        }
+    
+        public string Id { get; set; }
+        public string Name { get; set; }
+    
+        public virtual ICollection<City> City { get; set; }
     }
 }

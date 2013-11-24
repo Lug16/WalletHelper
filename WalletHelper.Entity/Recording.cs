@@ -12,9 +12,12 @@ namespace WalletHelper.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class PeriodType
+    public partial class Recording
     {
         public int Id { get; set; }
-        public string Description { get; set; }
+        public byte[] Recording1 { get; set; }
+        public int Payment_Id { get; set; }
+    
+        public virtual Payment Payment { get; set; }
     }
 }

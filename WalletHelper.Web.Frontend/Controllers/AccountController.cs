@@ -261,6 +261,7 @@ namespace WalletHelper.Web.Frontend.Controllers
             {
                 // Get the information about the user from the external login provider
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+
                 if (info == null)
                 {
                     return View("ExternalLoginFailure");
@@ -327,7 +328,7 @@ namespace WalletHelper.Web.Frontend.Controllers
         {
             get
             {
-                return HttpContext.GetOwinContext().Authentication;
+                return HttpContext.GetOwinContext().Authentication ;
             }
         }
 

@@ -32,7 +32,7 @@ namespace WalletHelper.Web.Frontend
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication();
         }
     }
 }

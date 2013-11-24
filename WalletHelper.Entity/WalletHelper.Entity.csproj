@@ -39,17 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Capture.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="Enums\CommonTypes.cs" />
+    <Compile Include="Geolocation.cs" />
     <Compile Include="Hashtag.cs" />
+    <Compile Include="NotificationType.cs" />
     <Compile Include="Payment.cs" />
+    <Compile Include="PaymentMethod.cs" />
+    <Compile Include="PaymentMethodDetail.cs" />
+    <Compile Include="PeriodType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recording.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="ScheduledPayment.cs" />
     <Compile Include="Status.cs" />
-    <Compile Include="PaymentMethodDetail.cs" />
-    <Compile Include="PaymentMethod.cs" />
-    <Compile Include="PeriodType.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserNotification.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
