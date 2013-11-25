@@ -259,6 +259,7 @@ namespace WalletHelper.Web.Frontend.Controllers
 
             if (ModelState.IsValid)
             {
+                var externalLogin = await AuthenticationManager.AuthenticateAsync(DefaultAuthenticationTypes.ExternalCookie);
                 // Get the information about the user from the external login provider
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
 

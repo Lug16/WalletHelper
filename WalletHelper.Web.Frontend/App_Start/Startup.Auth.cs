@@ -28,9 +28,9 @@ namespace WalletHelper.Web.Frontend
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1410934102476945",
+               appSecret: "0d8348b9d241364ba219dbea87f3a931");
 
             app.UseGoogleAuthentication();
         }
