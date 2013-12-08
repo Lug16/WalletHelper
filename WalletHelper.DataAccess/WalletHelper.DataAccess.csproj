@@ -52,37 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="WalletHelperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WalletHelperModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WalletHelperModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WalletHelperModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WalletHelperModel.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="WalletHelperModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WalletHelperModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="WalletHelperModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WalletHelperModel.edmx</DependentUpon>
-      <LastGenOutput>WalletHelperModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="WalletHelperModel.edmx.diagram">
-      <DependentUpon>WalletHelperModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

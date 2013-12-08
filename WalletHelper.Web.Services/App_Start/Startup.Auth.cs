@@ -59,7 +59,7 @@ namespace WalletHelper.Web.Services
             //    appId: "",
             //    appSecret: "");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication();
         }
     }
 }

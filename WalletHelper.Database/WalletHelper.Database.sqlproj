@@ -81,6 +81,8 @@
     <Build Include="dbo\Tables\UserNotification.sql" />
     <Build Include="dbo\Tables\NotificationType.sql" />
     <Build Include="dbo\Tables\Geolocation.sql" />
+    <Build Include="dbo\Tables\UserType.sql" />
+    <Build Include="dbo\Tables\UserReference.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="WalletHelper.Database.refactorlog" />
