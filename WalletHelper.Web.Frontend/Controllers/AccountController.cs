@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using WalletHelper.Web.Frontend.Models;
+using WalletHelper.DataAccess;
 
 namespace WalletHelper.Web.Frontend.Controllers
 {

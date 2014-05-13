@@ -17,7 +17,7 @@ namespace WalletHelper.DataAccess
     public partial class WalletHelperContext : DbContext
     {
         public WalletHelperContext()
-            : base("WalletHelperContext")
+            : base("WalletHelper.Database")
         {
             //Database.SetInitializer<WalletHelperContext>(new DropCreateDatabaseIfModelChanges<WalletHelperContext>());
         }
