@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.DataAccess", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Web.Services", "WalletHelper.Web.Services\WalletHelper.Web.Services.csproj", "{5F2295D9-8D3C-4FFD-94D8-DE304C6EC35C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Common", "WalletHellper.Common\WalletHelper.Common.csproj", "{4E689F23-6499-4505-A00C-18F5F52D767D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{5F2295D9-8D3C-4FFD-94D8-DE304C6EC35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F2295D9-8D3C-4FFD-94D8-DE304C6EC35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F2295D9-8D3C-4FFD-94D8-DE304C6EC35C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E689F23-6499-4505-A00C-18F5F52D767D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E689F23-6499-4505-A00C-18F5F52D767D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E689F23-6499-4505-A00C-18F5F52D767D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E689F23-6499-4505-A00C-18F5F52D767D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
