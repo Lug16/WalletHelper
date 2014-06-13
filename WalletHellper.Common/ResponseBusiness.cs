@@ -3,9 +3,9 @@ namespace WalletHelper.Common
 {
     public interface IResponseBusiness<T> where T : new()
     {
-        T Entity { get; }
-        bool IsError { get; }
-        string Message { get; }
+        T Entity { get; set; }
+        bool IsError { get; set; }
+        string Message { get; set; }
     }
 
     public class ResponseBusiness<T> : IResponseBusiness<T> where T : new()
@@ -14,19 +14,19 @@ namespace WalletHelper.Common
         public T Entity
         {
             get;
-            internal set;
+            set;
         }
 
         public bool IsError
         {
             get;
-            internal set;
+            set;
         }
 
         public string Message
         {
             get;
-            internal set;
+            set;
         }
     }
 }
