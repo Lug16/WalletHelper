@@ -15,7 +15,7 @@ namespace WalletHelper.Entity
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public byte[] Description { get; set; }
+        public string Description { get; set; }
         public decimal Value { get; set; }
         public bool IsScheduled { get; set; }
         public int PaymentType { get; set; }

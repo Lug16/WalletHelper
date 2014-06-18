@@ -1,5 +1,5 @@
 ﻿
-namespace WalletHelper.Common
+namespace WalletHelper.Entity.Enums
 {
     /// <summary>
     /// Enumeración que indica el idioma de los mensajes a enviar a la capa de presentación

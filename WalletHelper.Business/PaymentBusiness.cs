@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
+using System.Diagnostics;
 using WalletHelper.Common;
 using WalletHelper.DataAccess;
+using WalletHelper.Entity.Enums;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Extensibility;
 
 namespace WalletHelper.Business
 {
@@ -22,7 +26,8 @@ namespace WalletHelper.Business
         /// <param name="payment">Entidad a guardar</param>
         /// <returns><c>IResponseBusiness<Entity.Payment></c></returns>
         /// <exception cref="System.ArgumentNullException">payment</exception>
-        public IResponseBusiness<Entity.Payment> Save(Entity.Payment payment)
+        [LogException]
+        public IResponseBusiness<Entity.Payment> Save(Entity.Payment payment)   
         {
             if (payment == null)
                 throw new ArgumentNullException("payment");
@@ -42,32 +47,26 @@ namespace WalletHelper.Business
                 }
                 catch (DbUpdateConcurrencyException cex)
                 {
-                    //TODO: Instrumentación
                     response.Message = this.ResourceMessages.GetString("PaymentSaveDbUpdateConcurrencyException");
                 }
                 catch (DbUpdateException uex)
                 {
-                    //TODO: Instrumentación
                     response.Message = this.ResourceMessages.GetString("PaymentSaveDbUpdateException");
                 }
                 catch (DbEntityValidationException eex)
                 {
-                    //TODO: Instrumentación
                     response.Message = this.ResourceMessages.GetString("PaymentSaveDbEntityValidationException");
                 }
                 catch (NotSupportedException sex)
                 {
-                    //TODO: Instrumentación
                     response.Message = this.ResourceMessages.GetString("PaymentSaveNotSupportedException");
                 }
                 catch (ObjectDisposedException dex)
                 {
-                    //TODO: Instrumentación
                     response.Message = this.ResourceMessages.GetString("PaymentSaveObjectDisposedException");
                 }
                 catch (InvalidOperationException iex)
                 {
-                    //TODO: Instrumentación
                     response.Message = this.ResourceMessages.GetString("PaymentSaveInvalidOperationException");
                 }
                 finally
@@ -76,6 +75,7 @@ namespace WalletHelper.Business
                     response.IsError = false;
                     response.Message = string.Empty;
                     ctx.Dispose();
+                    Trace.Flush();
                 }
             }
             else

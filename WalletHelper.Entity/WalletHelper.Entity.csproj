@@ -69,6 +69,7 @@
     <Compile Include="Classes\UserReference.cs" />
     <Compile Include="Classes\UserType.cs" />
     <Compile Include="Enums\CommonTypes.cs" />
+    <Compile Include="Enums\Languages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
