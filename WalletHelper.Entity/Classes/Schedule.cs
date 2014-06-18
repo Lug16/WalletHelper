@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class Schedule
+    public class Schedule
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
@@ -27,9 +27,7 @@ namespace WalletHelper.Entity.Classes
         public Schedule()
         {
             ScheduledPayments = new List<ScheduledPayment>();
-            InitializePartial();
         }
-        partial void InitializePartial();
     }
 
 }

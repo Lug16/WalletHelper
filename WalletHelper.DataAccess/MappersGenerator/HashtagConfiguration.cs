@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // Hashtag
     internal class HashtagConfiguration : EntityTypeConfiguration<Hashtag>
     {
         public HashtagConfiguration(string schema = "dbo")
@@ -26,8 +25,7 @@ namespace WalletHelper.DataAccess
             Property(x => x.Tag).HasColumnName("Tag").IsRequired().HasMaxLength(50);
             Property(x => x.UserId).HasColumnName("User_Id").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.User).WithMany(b => b.Hashtags).HasForeignKey(c => c.UserId); // FK_Hashtag_User
+            HasRequired(a => a.User).WithMany(b => b.Hashtags).HasForeignKey(c => c.UserId);
         }
     }
 

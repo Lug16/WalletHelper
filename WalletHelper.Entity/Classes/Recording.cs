@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class Recording
+    public class Recording
     {
         public int Id { get; set; }
         public byte[] Recording_ { get; set; }

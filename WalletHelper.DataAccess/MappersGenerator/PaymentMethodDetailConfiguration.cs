@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // PaymentMethodDetail
     internal class PaymentMethodDetailConfiguration : EntityTypeConfiguration<PaymentMethodDetail>
     {
         public PaymentMethodDetailConfiguration(string schema = "dbo")
@@ -28,8 +27,7 @@ namespace WalletHelper.DataAccess
             Property(x => x.PaymentMethodId).HasColumnName("PaymentMethod_Id").IsRequired();
             Property(x => x.UserId).HasColumnName("User_Id").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.User).WithMany(b => b.PaymentMethodDetails).HasForeignKey(c => c.UserId); // FK_PaymentMethodDetail_User
+            HasRequired(a => a.User).WithMany(b => b.PaymentMethodDetails).HasForeignKey(c => c.UserId);
         }
     }
 

@@ -10,24 +10,65 @@ namespace WalletHelper.Business
     /// </summary>
     public abstract class BaseBusiness
     {
-        ResourceManager _res_man; 
-        CultureInfo _cul; 
+        #region Atributos
+        ResourceManager _resourceMessages; 
+        CultureInfo _cul;
+        MessageLanguageFrontEnd _language;
+        #endregion
 
+        #region Propiedades
         /// <summary>
         /// Indica el idioma en que se devolveran los mensajes
         /// </summary>
-        MessageLanguageFrontEnd Language { get; set; }
-
-        public BaseBusiness()
-        {
-
+        /// <value>
+        /// The language.
+        /// </value>
+        public MessageLanguageFrontEnd Language 
+        { 
+            get
+            {
+                return this._language;
+            }
+            set
+            {
+                this._language = value;
+                InitLanguage();
+            }
         }
 
+        /// <summary>
+        /// Recurso para los mensajes
+        /// </summary>
+        /// <value>
+        /// The resource messages.
+        /// </value>
+        internal ResourceManager ResourceMessages
+        {
+            get
+            {
+                return this._resourceMessages;
+            }
+            set
+            {
+                this._resourceMessages = value;
+            }
+        }
+        #endregion
+
+        #region Constructores
         public BaseBusiness(MessageLanguageFrontEnd language)
         {
             this.Language = language;
+        }
+        #endregion
 
-            //Inicializa idioma
+        #region Metodos Privados
+        /// <summary>
+        /// Inicializa idioma
+        /// </summary>
+        private void InitLanguage()
+        {
+            this._resourceMessages = new ResourceManager("WalletHelper.Business.Resources.Messages", typeof(BaseBusiness).Assembly);
             switch (this.Language)
             {
                 case MessageLanguageFrontEnd.English:
@@ -40,5 +81,6 @@ namespace WalletHelper.Business
                     break;
             }
         }
+        #endregion
     }
 }

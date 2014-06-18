@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // City
     internal class CityConfiguration : EntityTypeConfiguration<City>
     {
         public CityConfiguration(string schema = "dbo")
@@ -26,8 +25,7 @@ namespace WalletHelper.DataAccess
             Property(x => x.Name).HasColumnName("Name").IsRequired().HasMaxLength(50);
             Property(x => x.CountryId).HasColumnName("Country_Id").IsRequired().HasMaxLength(2);
 
-            // Foreign keys
-            HasRequired(a => a.Country).WithMany(b => b.Cities).HasForeignKey(c => c.CountryId); // FK_City_Country
+            HasRequired(a => a.Country).WithMany(b => b.Cities).HasForeignKey(c => c.CountryId);
         }
     }
 

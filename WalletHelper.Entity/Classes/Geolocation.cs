@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class Geolocation
+    public class Geolocation
     {
         public int Id { get; set; }
         public decimal Latitude { get; set; }

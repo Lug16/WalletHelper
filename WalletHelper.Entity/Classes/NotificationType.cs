@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class NotificationType
+    public class NotificationType
     {
         public int Id { get; set; }
         public string Description { get; set; }
@@ -21,9 +21,7 @@ namespace WalletHelper.Entity.Classes
         public NotificationType()
         {
             UserNotifications = new List<UserNotification>();
-            InitializePartial();
         }
-        partial void InitializePartial();
     }
 
 }

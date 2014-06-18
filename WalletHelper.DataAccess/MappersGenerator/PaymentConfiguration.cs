@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // Payment
     internal class PaymentConfiguration : EntityTypeConfiguration<Payment>
     {
         public PaymentConfiguration(string schema = "dbo")
@@ -34,12 +33,11 @@ namespace WalletHelper.DataAccess
             Property(x => x.StatusId).HasColumnName("Status_Id").IsRequired();
             Property(x => x.HashtagId).HasColumnName("Hashtag_Id").IsOptional();
 
-            // Foreign keys
-            HasRequired(a => a.ScheduledPayment).WithMany(b => b.Payments).HasForeignKey(c => c.ScheduledPaymentId); // FK_Payment_ScheduledPayment
-            HasRequired(a => a.PaymentMethodDetail).WithMany(b => b.Payments).HasForeignKey(c => c.PaymentMethodDetailId); // FK_Payment_PaymentMethodDetail
-            HasRequired(a => a.User).WithMany(b => b.Payments).HasForeignKey(c => c.UserId); // FK_Payment_User
-            HasRequired(a => a.Status).WithMany(b => b.Payments).HasForeignKey(c => c.StatusId); // FK_Payment_Status
-            HasOptional(a => a.Hashtag).WithMany(b => b.Payments).HasForeignKey(c => c.HashtagId); // FK_Payment_Hashtag
+            HasRequired(a => a.ScheduledPayment).WithMany(b => b.Payments).HasForeignKey(c => c.ScheduledPaymentId);
+            HasRequired(a => a.PaymentMethodDetail).WithMany(b => b.Payments).HasForeignKey(c => c.PaymentMethodDetailId);
+            HasRequired(a => a.User).WithMany(b => b.Payments).HasForeignKey(c => c.UserId);
+            HasRequired(a => a.Status).WithMany(b => b.Payments).HasForeignKey(c => c.StatusId);
+            HasOptional(a => a.Hashtag).WithMany(b => b.Payments).HasForeignKey(c => c.HashtagId);
         }
     }
 

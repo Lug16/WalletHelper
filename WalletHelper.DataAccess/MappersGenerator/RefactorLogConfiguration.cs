@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // __RefactorLog
     internal class RefactorLogConfiguration : EntityTypeConfiguration<RefactorLog>
     {
         public RefactorLogConfiguration(string schema = "dbo")

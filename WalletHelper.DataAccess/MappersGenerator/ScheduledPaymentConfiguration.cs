@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // ScheduledPayment
     internal class ScheduledPaymentConfiguration : EntityTypeConfiguration<ScheduledPayment>
     {
         public ScheduledPaymentConfiguration(string schema = "dbo")
@@ -28,8 +27,7 @@ namespace WalletHelper.DataAccess
             Property(x => x.PaymentType).HasColumnName("PaymentType").IsRequired();
             Property(x => x.ScheduleId).HasColumnName("Schedule_Id").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.Schedule).WithMany(b => b.ScheduledPayments).HasForeignKey(c => c.ScheduleId); // FK_ScheduledPayment_Schedule
+            HasRequired(a => a.Schedule).WithMany(b => b.ScheduledPayments).HasForeignKey(c => c.ScheduleId);
         }
     }
 

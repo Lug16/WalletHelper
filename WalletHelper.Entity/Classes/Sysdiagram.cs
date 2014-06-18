@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class Sysdiagram
+    public class Sysdiagram
     {
         public string Name { get; set; }
         public int PrincipalId { get; set; }

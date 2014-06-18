@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class Hashtag
+    public class Hashtag
     {
         public int Id { get; set; }
         public string Tag { get; set; }
@@ -24,9 +24,7 @@ namespace WalletHelper.Entity.Classes
         public Hashtag()
         {
             Payments = new List<Payment>();
-            InitializePartial();
         }
-        partial void InitializePartial();
     }
 
 }

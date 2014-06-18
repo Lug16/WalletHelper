@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // Capture
     internal class CaptureConfiguration : EntityTypeConfiguration<Capture>
     {
         public CaptureConfiguration(string schema = "dbo")
@@ -26,8 +25,7 @@ namespace WalletHelper.DataAccess
             Property(x => x.Image).HasColumnName("Image").IsRequired();
             Property(x => x.PaymentId).HasColumnName("Payment_Id").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.Payment).WithMany(b => b.Captures).HasForeignKey(c => c.PaymentId); // FK_Capture_Payment
+            HasRequired(a => a.Payment).WithMany(b => b.Captures).HasForeignKey(c => c.PaymentId);
         }
     }
 

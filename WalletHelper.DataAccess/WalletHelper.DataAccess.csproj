@@ -59,6 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntitiesGenerator\WalletHelperDatabase.Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WalletHelperDatabase.Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="MappersGenerator\CaptureConfiguration.cs">
       <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
     </Compile>

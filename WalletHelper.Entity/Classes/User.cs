@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class User
+    public class User
     {
         public int Id { get; set; }
         public string AspNetUserId { get; set; }
@@ -47,9 +47,7 @@ namespace WalletHelper.Entity.Classes
             UserNotifications = new List<UserNotification>();
             UserReferences_UserId = new List<UserReference>();
             UserReferences_UserReferenceId = new List<UserReference>();
-            InitializePartial();
         }
-        partial void InitializePartial();
     }
 
 }

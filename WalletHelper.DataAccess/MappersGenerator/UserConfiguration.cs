@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // User
     internal class UserConfiguration : EntityTypeConfiguration<User>
     {
         public UserConfiguration(string schema = "dbo")
@@ -35,10 +34,9 @@ namespace WalletHelper.DataAccess
             Property(x => x.StatusId).HasColumnName("Status_Id").IsRequired();
             Property(x => x.TypeId).HasColumnName("Type_Id").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.City).WithMany(b => b.Users).HasForeignKey(c => c.CityId); // FK_User_City
-            HasRequired(a => a.Status).WithMany(b => b.Users).HasForeignKey(c => c.StatusId); // FK_User_Status
-            HasRequired(a => a.UserType).WithMany(b => b.Users).HasForeignKey(c => c.TypeId); // FK_User_UserType
+            HasRequired(a => a.City).WithMany(b => b.Users).HasForeignKey(c => c.CityId);
+            HasRequired(a => a.Status).WithMany(b => b.Users).HasForeignKey(c => c.StatusId);
+            HasRequired(a => a.UserType).WithMany(b => b.Users).HasForeignKey(c => c.TypeId);
         }
     }
 

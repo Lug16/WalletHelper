@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // Geolocation
     internal class GeolocationConfiguration : EntityTypeConfiguration<Geolocation>
     {
         public GeolocationConfiguration(string schema = "dbo")
@@ -28,8 +27,7 @@ namespace WalletHelper.DataAccess
             Property(x => x.LocationName).HasColumnName("LocationName").IsOptional().HasMaxLength(100);
             Property(x => x.PaymentId).HasColumnName("Payment_Id").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.Payment).WithMany(b => b.Geolocations).HasForeignKey(c => c.PaymentId); // FK_Geolocation_Payment
+            HasRequired(a => a.Payment).WithMany(b => b.Geolocations).HasForeignKey(c => c.PaymentId);
         }
     }
 

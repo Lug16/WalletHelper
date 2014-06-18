@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class PaymentMethodDetail
+    public class PaymentMethodDetail
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -26,9 +26,7 @@ namespace WalletHelper.Entity.Classes
         public PaymentMethodDetail()
         {
             Payments = new List<Payment>();
-            InitializePartial();
         }
-        partial void InitializePartial();
     }
 
 }

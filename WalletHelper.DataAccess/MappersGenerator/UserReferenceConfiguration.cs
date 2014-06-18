@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // UserReference
     internal class UserReferenceConfiguration : EntityTypeConfiguration<UserReference>
     {
         public UserReferenceConfiguration(string schema = "dbo")
@@ -27,9 +26,8 @@ namespace WalletHelper.DataAccess
             Property(x => x.UserId).HasColumnName("User_Id").IsRequired();
             Property(x => x.Date).HasColumnName("Date").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.User_UserReferenceId).WithMany(b => b.UserReferences_UserReferenceId).HasForeignKey(c => c.UserReferenceId); // FK_UserReference_ReferencedUser
-            HasRequired(a => a.User_UserId).WithMany(b => b.UserReferences_UserId).HasForeignKey(c => c.UserId); // FK_UserReference_SponsorUser
+            HasRequired(a => a.User_UserReferenceId).WithMany(b => b.UserReferences_UserReferenceId).HasForeignKey(c => c.UserReferenceId);
+            HasRequired(a => a.User_UserId).WithMany(b => b.UserReferences_UserId).HasForeignKey(c => c.UserId);
         }
     }
 

@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class Payment
+    public class Payment
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
@@ -43,9 +43,7 @@ namespace WalletHelper.Entity.Classes
             Captures = new List<Capture>();
             Geolocations = new List<Geolocation>();
             Recordings = new List<Recording>();
-            InitializePartial();
         }
-        partial void InitializePartial();
     }
 
 }

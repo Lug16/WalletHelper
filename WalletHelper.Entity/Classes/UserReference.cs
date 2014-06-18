@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class UserReference
+    public class UserReference
     {
         public int Id { get; set; }
         public int UserReferenceId { get; set; }

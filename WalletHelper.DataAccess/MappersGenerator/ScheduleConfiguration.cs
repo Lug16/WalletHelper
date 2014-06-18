@@ -10,11 +10,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
-    // Schedule
     internal class ScheduleConfiguration : EntityTypeConfiguration<Schedule>
     {
         public ScheduleConfiguration(string schema = "dbo")
@@ -29,8 +28,7 @@ namespace WalletHelper.DataAccess
             Property(x => x.PeriodTypeId).HasColumnName("PeriodType_Id").IsRequired();
             Property(x => x.UserId).HasColumnName("User_Id").IsRequired();
 
-            // Foreign keys
-            HasRequired(a => a.User).WithMany(b => b.Schedules).HasForeignKey(c => c.UserId); // FK_Schedule_User
+            HasRequired(a => a.User).WithMany(b => b.Schedules).HasForeignKey(c => c.UserId);
         }
     }
 

@@ -9,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WalletHelper.Entity.Classes
+namespace WalletHelper.Entity
 {
-    public partial class Country
+    public class Country
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -21,9 +21,7 @@ namespace WalletHelper.Entity.Classes
         public Country()
         {
             Cities = new List<City>();
-            InitializePartial();
         }
-        partial void InitializePartial();
     }
 
 }

@@ -10,30 +10,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 //using DatabaseGeneratedOption = System.ComponentModel.DataAnnotations.DatabaseGeneratedOption;
-using WalletHelper.Entity.Classes;
+using WalletHelper.Entity;
 
 namespace WalletHelper.DataAccess
 {
     public class WalletHelperContext : DbContext
     {
-        public IDbSet<Capture> Captures { get; set; } // Capture
-        public IDbSet<City> Cities { get; set; } // City
-        public IDbSet<Country> Countries { get; set; } // Country
-        public IDbSet<Geolocation> Geolocations { get; set; } // Geolocation
-        public IDbSet<Hashtag> Hashtags { get; set; } // Hashtag
-        public IDbSet<NotificationType> NotificationTypes { get; set; } // NotificationType
-        public IDbSet<Payment> Payments { get; set; } // Payment
-        public IDbSet<PaymentMethodDetail> PaymentMethodDetails { get; set; } // PaymentMethodDetail
-        public IDbSet<Recording> Recordings { get; set; } // Recording
-        public IDbSet<RefactorLog> RefactorLogs { get; set; } // __RefactorLog
-        public IDbSet<Schedule> Schedules { get; set; } // Schedule
-        public IDbSet<ScheduledPayment> ScheduledPayments { get; set; } // ScheduledPayment
-        public IDbSet<Status> Status { get; set; } // Status
-        public IDbSet<Sysdiagram> Sysdiagrams { get; set; } // sysdiagrams
-        public IDbSet<User> Users { get; set; } // User
-        public IDbSet<UserNotification> UserNotifications { get; set; } // UserNotification
-        public IDbSet<UserReference> UserReferences { get; set; } // UserReference
-        public IDbSet<UserType> UserTypes { get; set; } // UserType
+        public IDbSet<Capture> Captures { get; set; }
+        public IDbSet<City> Cities { get; set; }
+        public IDbSet<Country> Countries { get; set; }
+        public IDbSet<Geolocation> Geolocations { get; set; }
+        public IDbSet<Hashtag> Hashtags { get; set; }
+        public IDbSet<NotificationType> NotificationTypes { get; set; }
+        public IDbSet<Payment> Payments { get; set; }
+        public IDbSet<PaymentMethodDetail> PaymentMethodDetails { get; set; }
+        public IDbSet<Recording> Recordings { get; set; }
+        public IDbSet<RefactorLog> RefactorLogs { get; set; }
+        public IDbSet<Schedule> Schedules { get; set; }
+        public IDbSet<ScheduledPayment> ScheduledPayments { get; set; }
+        public IDbSet<Status> Status { get; set; }
+        public IDbSet<Sysdiagram> Sysdiagrams { get; set; }
+        public IDbSet<User> Users { get; set; }
+        public IDbSet<UserNotification> UserNotifications { get; set; }
+        public IDbSet<UserReference> UserReferences { get; set; }
+        public IDbSet<UserType> UserTypes { get; set; }
 
         static WalletHelperContext()
         {
