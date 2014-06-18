@@ -18,6 +18,11 @@ namespace WalletHelper.Business
         /// </summary>
         MessageLanguageFrontEnd Language { get; set; }
 
+        public BaseBusiness()
+        {
+
+        }
+
         public BaseBusiness(MessageLanguageFrontEnd language)
         {
             this.Language = language;

@@ -47,6 +47,7 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -58,10 +59,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IdentityMembershipContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="WalletHelperContext.cs" />
+    <Compile Include="MappersGenerator\CaptureConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\CityConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\CountryConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\GeolocationConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\HashtagConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\NotificationTypeConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\PaymentConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\PaymentMethodDetailConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\WalletHelperContext.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MappersGenerator\RecordingConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\RefactorLogConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\ScheduleConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\ScheduledPaymentConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\StatusConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\SysdiagramConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\UserConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\UserNotificationConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\UserReferenceConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\UserTypeConfiguration.cs">
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappersGenerator\WalletHelperDatabase.Mappers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -74,7 +134,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="EntitiesGenerator\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="EntitiesGenerator\EF.Reverse.POCO.ttinclude" />
+    <None Include="EntitiesGenerator\WalletHelperDatabase.Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WalletHelperDatabase.Entities.cs</LastGenOutput>
+    </None>
+    <None Include="MappersGenerator\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="MappersGenerator\EF.Reverse.POCO.ttinclude" />
+    <None Include="MappersGenerator\WalletHelperDatabase.Mappers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WalletHelperDatabase.Mappers.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

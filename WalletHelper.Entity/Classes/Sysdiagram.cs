@@ -11,22 +11,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WalletHelper.Entity.Classes
 {
-    public partial class Hashtag
+    public partial class Sysdiagram
     {
-        public int Id { get; set; }
-        public string Tag { get; set; }
-        public int UserId { get; set; }
-
-        public virtual ICollection<Payment> Payments { get; set; }
-
-        public virtual User User { get; set; }
-
-        public Hashtag()
-        {
-            Payments = new List<Payment>();
-            InitializePartial();
-        }
-        partial void InitializePartial();
+        public string Name { get; set; }
+        public int PrincipalId { get; set; }
+        public int DiagramId { get; set; }
+        public int? Version { get; set; }
+        public byte[] Definition { get; set; }
     }
 
 }

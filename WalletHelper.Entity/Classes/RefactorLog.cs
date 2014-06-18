@@ -11,22 +11,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WalletHelper.Entity.Classes
 {
-    public partial class Hashtag
+    public partial class RefactorLog
     {
-        public int Id { get; set; }
-        public string Tag { get; set; }
-        public int UserId { get; set; }
-
-        public virtual ICollection<Payment> Payments { get; set; }
-
-        public virtual User User { get; set; }
-
-        public Hashtag()
-        {
-            Payments = new List<Payment>();
-            InitializePartial();
-        }
-        partial void InitializePartial();
+        public Guid OperationKey { get; set; }
     }
 
 }

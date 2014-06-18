@@ -16,18 +16,18 @@ namespace WalletHelper.Business
         /// </summary>
         /// <param name="payment">Entidad a guardar</param>
         /// <returns><c>IResponseBusiness<Entity.Payment></c></returns>
-        public IResponseBusiness<Entity.Payment> Save(Entity.Payment payment)
+        public IResponseBusiness<Entity.Classes.Payment> Save(Entity.Classes.Payment payment)
         {
             if (payment == null)
                 throw new ArgumentNullException("payment");
 
-            IResponseBusiness<Entity.Payment> response = new ResponseBusiness<Entity.Payment>();
+            IResponseBusiness<Entity.Classes.Payment> response = new ResponseBusiness<Entity.Classes.Payment>();
             IResponseValidate validatePayment = ValidatePayment(payment);
 
             if (validatePayment.IsValid)
             {
                 WalletHelperContext ctx = new WalletHelperContext();
-                ctx.Payment.Add(payment);
+                ctx.Payments.Add(payment);
                 try
                 {
                     ctx.SaveChanges();
@@ -54,7 +54,7 @@ namespace WalletHelper.Business
         /// </summary>
         /// <param name="payment">Entidad a validar</param>
         /// <returns><c>IResponseValidate</c></returns>
-        public IResponseValidate ValidatePayment(Entity.Payment payment)
+        public IResponseValidate ValidatePayment(Entity.Classes.Payment payment)
         {
             if (payment == null)
                 throw new ArgumentNullException("payment");
