@@ -9,12 +9,6 @@
 //     Connection String Name: "WalletHelper.Database"
 //     Connection String:      "Data Source=.\sqlexpress;Initial Catalog=WalletHelper.Database;Integrated Security=True"
 
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
 
 using System;
 using System.Collections.Generic;

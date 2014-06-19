@@ -1,9 +1,3 @@
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
 
 using System;
 using System.Collections.Generic;

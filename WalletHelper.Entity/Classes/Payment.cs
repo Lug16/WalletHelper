@@ -1,9 +1,3 @@
-// ReSharper disable RedundantUsingDirective
-// ReSharper disable DoNotCallOverridableMethodsInConstructor
-// ReSharper disable InconsistentNaming
-// ReSharper disable PartialTypeWithSinglePart
-// ReSharper disable PartialMethodWithSinglePart
-// ReSharper disable RedundantNameQualifier
 
 using System;
 using System.Collections.Generic;
@@ -15,7 +9,7 @@ namespace WalletHelper.Entity
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public byte[] Description { get; set; }
+        public string Description { get; set; }
         public decimal Value { get; set; }
         public bool IsScheduled { get; set; }
         public int PaymentType { get; set; }
