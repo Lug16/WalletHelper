@@ -12,11 +12,12 @@
     [Status_Id]         INT            NOT NULL,
     [Type_Id]           INT            NOT NULL,
     CONSTRAINT [PK__User__3214EC0744275468] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_User_AspNetUsers] FOREIGN KEY ([AspNetUser_Id]) REFERENCES [dbo].[AspNetUsers] ([Id]),
     CONSTRAINT [FK_User_City] FOREIGN KEY ([City_Id]) REFERENCES [dbo].[City] ([Id]),
     CONSTRAINT [FK_User_Status] FOREIGN KEY ([Status_Id]) REFERENCES [dbo].[Status] ([Id]),
     CONSTRAINT [FK_User_UserType] FOREIGN KEY ([Type_Id]) REFERENCES [dbo].[UserType] ([Id])
 );
+
+
 
 
 
