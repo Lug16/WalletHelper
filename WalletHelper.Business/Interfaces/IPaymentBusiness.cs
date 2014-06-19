@@ -12,7 +12,7 @@ namespace WalletHelper.Business
         /// </summary>
         /// <param name="payment">Entidad a guardar</param>
         /// <returns><c>IResponseBusiness<Entity.Payment></c></returns>
-        IResponseBusiness<Entity.PaymentMethodDetail> Save(Entity.Payment payment);
+        IResponseBusiness<Entity.Payment> Save(Entity.Payment payment);
         /// <summary>
         /// Valida un ingreso/egreso
         /// </summary>

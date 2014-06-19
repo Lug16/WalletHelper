@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Resources;
 using WalletHelper.Common;
+using WalletHelper.Entity.Enums;
 
 
 namespace WalletHelper.Business
@@ -11,7 +12,7 @@ namespace WalletHelper.Business
     public abstract class BaseBusiness
     {
         #region Atributos
-        ResourceManager _resourceMessages; 
+        ResourceManager _resourceMessages;
         CultureInfo _cul;
         MessageLanguageFrontEnd _language;
         #endregion
