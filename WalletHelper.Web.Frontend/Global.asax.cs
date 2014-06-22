@@ -17,5 +17,9 @@ namespace WalletHelper.Web.Frontend
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        public static string CaptchaPublicKey { get { return System.Configuration.ConfigurationManager.AppSettings["recaptchaPublicKey"]; } }
+
+        public static string CaptchaPrivateKey { get { return System.Configuration.ConfigurationManager.AppSettings["recaptchaPrivateKey"]; } }
     }
 }

@@ -33,6 +33,18 @@ namespace WalletHelper.DataAccess
                 base.UserName = value;
             }
         }
+
+        public override string Email
+        {
+            get
+            {
+                return base.Email;
+            }
+            set
+            {
+                base.Email = value;
+            }
+        }
     }
 
     public class AuthorizationContext : IdentityDbContext<ApplicationUser>

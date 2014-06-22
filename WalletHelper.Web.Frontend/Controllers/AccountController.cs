@@ -75,9 +75,10 @@ namespace WalletHelper.Web.Frontend.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        [CaptchaValidator]
+        public async Task<ActionResult> Register(RegisterViewModel model, bool validCaptcha)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && validCaptcha)
             {
                 var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user, model.Password);
