@@ -54,6 +54,24 @@ namespace WalletHelper.Business
                 this._resourceMessages = value;
             }
         }
+
+        /// <summary>
+        /// Cultura asignada.
+        /// </summary>
+        /// <value>
+        /// The culture.
+        /// </value>
+        internal CultureInfo Culture
+        {
+            get
+            {
+                return this._cul;
+            }
+            set
+            {
+                this._cul = value;
+            }
+        }
         #endregion
 
         #region Constructores
@@ -70,6 +88,7 @@ namespace WalletHelper.Business
         private void InitLanguage()
         {
             this._resourceMessages = new ResourceManager("WalletHelper.Business.Resources.Messages", typeof(BaseBusiness).Assembly);
+            this._resourceMessages.IgnoreCase = true;
             switch (this.Language)
             {
                 case MessageLanguageFrontEnd.English:

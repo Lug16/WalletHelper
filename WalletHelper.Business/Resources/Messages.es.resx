@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PaymentDateNull" xml:space="preserve">
-    <value>La Fecha del movimiento no puede estar vacía</value>
+    <value>La Fecha del movimiento no puede estar vacía\n</value>
   </data>
   <data name="PaymentDescriptionEmpty" xml:space="preserve">
-    <value>La Descripción del movimiento no puede estar vacía</value>
+    <value>La Descripción del movimiento no puede estar vacía\n</value>
   </data>
   <data name="PaymentPaymentMethodDetailNull" xml:space="preserve">
-    <value>El Método del movimiento no puede estar vacío</value>
+    <value>El Método del movimiento no puede estar vacío\n</value>
   </data>
   <data name="PaymentPaymentType" xml:space="preserve">
-    <value>El Tipo de Movimiento no es válido</value>
+    <value>El Tipo de Movimiento no es válido\n</value>
   </data>
   <data name="PaymentSaveDbEntityValidationException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo</value>
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentSaveDbUpdateConcurrencyException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo</value>
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentSaveDbUpdateException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo</value>
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentSaveInvalidOperationException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo</value>
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentSaveNotSupportedException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo</value>
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentSaveObjectDisposedException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo</value>
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentUserNull" xml:space="preserve">
-    <value>El Usuario del movimiento no puede estar vacío</value>
+    <value>El Usuario del movimiento no puede estar vacío\n</value>
   </data>
   <data name="PaymentValueIsZero" xml:space="preserve">
-    <value>El Valor del movimiento debe ser mayor a cero (0)</value>
+    <value>El Valor del movimiento debe ser mayor a cero (0)\n</value>
   </data>
 </root>
