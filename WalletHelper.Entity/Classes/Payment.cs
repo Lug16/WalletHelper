@@ -13,7 +13,7 @@ namespace WalletHelper.Entity
         public decimal Value { get; set; }
         public bool IsScheduled { get; set; }
         public int PaymentType { get; set; }
-        public int ScheduledPaymentId { get; set; }
+        public int? ScheduledPaymentId { get; set; }
         public int PaymentMethodDetailId { get; set; }
         public int UserId { get; set; }
         public int StatusId { get; set; }

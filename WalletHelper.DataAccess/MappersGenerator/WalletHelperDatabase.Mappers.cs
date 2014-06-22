@@ -7,7 +7,7 @@
 // 
 //     Configuration file:     "WalletHelper.DataAccess\App.config"
 //     Connection String Name: "WalletHelper.Database"
-//     Connection String:      "Data Source=.\sqlexpress;Initial Catalog=WalletHelper.Database;Integrated Security=True"
+//     Connection String:      "Data Source=work-pc;Initial Catalog=WalletHelper.Database;Integrated Security=True"
 
 // ReSharper disable RedundantUsingDirective
 // ReSharper disable DoNotCallOverridableMethodsInConstructor

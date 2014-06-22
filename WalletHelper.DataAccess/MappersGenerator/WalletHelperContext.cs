@@ -29,7 +29,6 @@ namespace WalletHelper.DataAccess
         public IDbSet<Schedule> Schedules { get; set; }
         public IDbSet<ScheduledPayment> ScheduledPayments { get; set; }
         public IDbSet<Status> Status { get; set; }
-        public IDbSet<Sysdiagram> Sysdiagrams { get; set; }
         public IDbSet<User> Users { get; set; }
         public IDbSet<UserNotification> UserNotifications { get; set; }
         public IDbSet<UserReference> UserReferences { get; set; }
@@ -70,7 +69,6 @@ namespace WalletHelper.DataAccess
             modelBuilder.Configurations.Add(new ScheduleConfiguration());
             modelBuilder.Configurations.Add(new ScheduledPaymentConfiguration());
             modelBuilder.Configurations.Add(new StatusConfiguration());
-            modelBuilder.Configurations.Add(new SysdiagramConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new UserNotificationConfiguration());
             modelBuilder.Configurations.Add(new UserReferenceConfiguration());
@@ -92,7 +90,6 @@ namespace WalletHelper.DataAccess
             modelBuilder.Configurations.Add(new ScheduleConfiguration(schema));
             modelBuilder.Configurations.Add(new ScheduledPaymentConfiguration(schema));
             modelBuilder.Configurations.Add(new StatusConfiguration(schema));
-            modelBuilder.Configurations.Add(new SysdiagramConfiguration(schema));
             modelBuilder.Configurations.Add(new UserConfiguration(schema));
             modelBuilder.Configurations.Add(new UserNotificationConfiguration(schema));
             modelBuilder.Configurations.Add(new UserReferenceConfiguration(schema));

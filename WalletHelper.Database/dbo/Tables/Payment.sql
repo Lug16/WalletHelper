@@ -5,7 +5,7 @@
     [Value]                  MONEY         CONSTRAINT [DF__Payment__Value__1ED998B2] DEFAULT ((0)) NOT NULL,
     [IsScheduled]            BIT           CONSTRAINT [DF__Payment__IsSched__1FCDBCEB] DEFAULT ((0)) NOT NULL,
     [PaymentType]            INT           NOT NULL,
-    [ScheduledPayment_Id]    INT           NOT NULL,
+    [ScheduledPayment_Id]    INT           NULL,
     [PaymentMethodDetail_Id] INT           NOT NULL,
     [User_Id]                INT           NOT NULL,
     [Status_Id]              INT           NOT NULL,
@@ -17,6 +17,8 @@
     CONSTRAINT [FK_Payment_Status] FOREIGN KEY ([Status_Id]) REFERENCES [dbo].[Status] ([Id]),
     CONSTRAINT [FK_Payment_User] FOREIGN KEY ([User_Id]) REFERENCES [dbo].[User] ([Id])
 );
+
+
 
 
 

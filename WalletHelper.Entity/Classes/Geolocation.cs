@@ -8,8 +8,7 @@ namespace WalletHelper.Entity
     public class Geolocation
     {
         public int Id { get; set; }
-        public decimal Latitude { get; set; }
-        public decimal Longitude { get; set; }
+        public System.Data.Entity.Spatial.DbGeography Geo { get; set; }
         public string LocationName { get; set; }
         public int PaymentId { get; set; }
 

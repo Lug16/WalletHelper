@@ -27,13 +27,13 @@ namespace WalletHelper.DataAccess
             Property(x => x.Value).HasColumnName("Value").IsRequired().HasPrecision(19,4);
             Property(x => x.IsScheduled).HasColumnName("IsScheduled").IsRequired();
             Property(x => x.PaymentType).HasColumnName("PaymentType").IsRequired();
-            Property(x => x.ScheduledPaymentId).HasColumnName("ScheduledPayment_Id").IsRequired();
+            Property(x => x.ScheduledPaymentId).HasColumnName("ScheduledPayment_Id").IsOptional();
             Property(x => x.PaymentMethodDetailId).HasColumnName("PaymentMethodDetail_Id").IsRequired();
             Property(x => x.UserId).HasColumnName("User_Id").IsRequired();
             Property(x => x.StatusId).HasColumnName("Status_Id").IsRequired();
             Property(x => x.HashtagId).HasColumnName("Hashtag_Id").IsOptional();
 
-            HasRequired(a => a.ScheduledPayment).WithMany(b => b.Payments).HasForeignKey(c => c.ScheduledPaymentId);
+            HasOptional(a => a.ScheduledPayment).WithMany(b => b.Payments).HasForeignKey(c => c.ScheduledPaymentId);
             HasRequired(a => a.PaymentMethodDetail).WithMany(b => b.Payments).HasForeignKey(c => c.PaymentMethodDetailId);
             HasRequired(a => a.User).WithMany(b => b.Payments).HasForeignKey(c => c.UserId);
             HasRequired(a => a.Status).WithMany(b => b.Payments).HasForeignKey(c => c.StatusId);

@@ -22,8 +22,7 @@ namespace WalletHelper.DataAccess
             HasKey(x => x.Id);
 
             Property(x => x.Id).HasColumnName("Id").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            Property(x => x.Latitude).HasColumnName("Latitude").IsRequired().HasPrecision(4,4);
-            Property(x => x.Longitude).HasColumnName("Longitude").IsRequired().HasPrecision(4,4);
+            Property(x => x.Geo).HasColumnName("Geo").IsRequired();
             Property(x => x.LocationName).HasColumnName("LocationName").IsOptional().HasMaxLength(100);
             Property(x => x.PaymentId).HasColumnName("Payment_Id").IsRequired();
 

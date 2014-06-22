@@ -113,9 +113,6 @@
     <Compile Include="MappersGenerator\StatusConfiguration.cs">
       <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
     </Compile>
-    <Compile Include="MappersGenerator\SysdiagramConfiguration.cs">
-      <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
-    </Compile>
     <Compile Include="MappersGenerator\UserConfiguration.cs">
       <DependentUpon>WalletHelperDatabase.Mappers.tt</DependentUpon>
     </Compile>
