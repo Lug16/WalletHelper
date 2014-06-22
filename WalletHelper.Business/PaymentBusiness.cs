@@ -7,6 +7,7 @@ using System.Data.Entity.Validation;
 using WalletHelper.Common;
 using WalletHelper.DataAccess;
 using WalletHelper.Entity.Enums;
+using WalletHelper.Entity;
 
 namespace WalletHelper.Business
 {
@@ -16,7 +17,7 @@ namespace WalletHelper.Business
     public class Payment : BaseBusiness, IPayment
     {
         #region Constructores
-        public Payment(MessageLanguageFrontEnd language) : base(language) { }
+        public Payment(MessageLanguageFrontEnd language, User user) : base(language, user) { }
         #endregion
 
         #region Metodos publicos
@@ -99,7 +100,8 @@ namespace WalletHelper.Business
             try
             {
                 var query = from q in ctx.Payments
-                            where q.Date.Day == DateTime.Now.Day &&
+                            where q.User.Id == this.User.Id &&
+                            q.Date.Day == DateTime.Now.Day &&
                             q.Date.Month == DateTime.Now.Month &&
                             q.Date.Year == DateTime.Now.Year
                             select q;
@@ -125,7 +127,8 @@ namespace WalletHelper.Business
             try
             {
                 var query = from q in ctx.Payments
-                            where q.Date>= begin &&
+                            where q.User.Id == this.User.Id &&
+                            q.Date>= begin &&
                             q.Date <= end
                             select q;
                 ret = query.ToList();
@@ -165,6 +168,8 @@ namespace WalletHelper.Business
                 validate.Message += this.ResourceMessages.GetString("PaymentUserNull", this.Culture);
             if (payment.Value == 0)
                 validate.Message += this.ResourceMessages.GetString("PaymentValueIsZero", this.Culture);
+            if (payment.User.Id!=this.User.Id)
+                validate.Message += this.ResourceMessages.GetString("PaymentUserInvalid", this.Culture);
 
             validate.IsValid = string.IsNullOrEmpty(validate.Message);
             

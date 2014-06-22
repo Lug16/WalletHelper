@@ -1,15 +1,15 @@
 ﻿using System.Globalization;
 using System.Resources;
 using WalletHelper.Common;
+using WalletHelper.Entity;
 using WalletHelper.Entity.Enums;
-
 
 namespace WalletHelper.Business
 {
     /// <summary>
     /// Clase de negocio base
     /// </summary>
-    public abstract class BaseBusiness
+    public abstract class BaseBusiness : IBaseBusiness
     {
         #region Atributos
         ResourceManager _resourceMessages;
@@ -43,7 +43,7 @@ namespace WalletHelper.Business
         /// <value>
         /// The resource messages.
         /// </value>
-        internal ResourceManager ResourceMessages
+        public ResourceManager ResourceMessages
         {
             get
             {
@@ -61,7 +61,7 @@ namespace WalletHelper.Business
         /// <value>
         /// The culture.
         /// </value>
-        internal CultureInfo Culture
+        public CultureInfo Culture
         {
             get
             {
@@ -72,12 +72,15 @@ namespace WalletHelper.Business
                 this._cul = value;
             }
         }
+
+        public User User { get; set; }
         #endregion
 
         #region Constructores
-        public BaseBusiness(MessageLanguageFrontEnd language)
+        public BaseBusiness(MessageLanguageFrontEnd language, User user)
         {
             this.Language = language;
+            this.User = user;
         }
         #endregion
 

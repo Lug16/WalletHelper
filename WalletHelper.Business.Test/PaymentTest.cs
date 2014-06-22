@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using WalletHelper.Common;
+using WalletHelper.Entity;
 using WalletHelper.Entity.Enums;
 
 namespace WalletHelper.Business.Test
@@ -16,7 +17,8 @@ namespace WalletHelper.Business.Test
         public void SaveErrorTestMethod()
         {
             IResponseBusiness<Entity.Payment> valueReturned = null;
-            IPayment paymentBusiness = new Business.Payment(MessageLanguageFrontEnd.Spanish);
+            User user = new User();
+            IPayment paymentBusiness = new Business.Payment(MessageLanguageFrontEnd.Spanish, user);
 
             Entity.Payment payment = new Entity.Payment()
             {
@@ -39,7 +41,8 @@ namespace WalletHelper.Business.Test
         public void GetPaymentsDayNotNullTestMethod()
         {
             IList<Entity.Payment> valueReturned = null;
-            IPayment paymentBusiness = new Business.Payment(MessageLanguageFrontEnd.Spanish);
+            User user = new User();
+            IPayment paymentBusiness = new Business.Payment(MessageLanguageFrontEnd.Spanish, user);
 
             valueReturned = paymentBusiness.GetPaymentsDay();
             Assert.IsNotNull(valueReturned);
