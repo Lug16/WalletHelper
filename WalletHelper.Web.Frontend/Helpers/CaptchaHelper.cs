@@ -5,11 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+//La libreria recaptcha se puede descargar en https://code.google.com/p/recaptcha/downloads/list?q=label:aspnetlib-Latest
 
 namespace WalletHelper.Web.Frontend.Helpers
 {
     public static class CaptchaHelper
     {
+
         public static MvcHtmlString GenerateCaptcha(this HtmlHelper helper)
         {
             
