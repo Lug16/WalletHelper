@@ -55,10 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IPaymentBusiness.cs" />
-    <Compile Include="PaymentBusiness.cs" />
+    <Compile Include="Classes\PaymentBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceReacher.cs" />
+    <Compile Include="Common\ResourceReacher.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WalletHellper.Common\WalletHelper.Common.csproj">
@@ -72,6 +71,10 @@
     <ProjectReference Include="..\WalletHelper.Entity\WalletHelper.Entity.csproj">
       <Project>{489c5e7e-fd2b-4748-be07-81bc822dad27}</Project>
       <Name>WalletHelper.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WalletHelper.Interfaces\WalletHelper.Interfaces.csproj">
+      <Project>{f27d3cff-40ed-4070-830f-36c50e8b9e22}</Project>
+      <Name>WalletHelper.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

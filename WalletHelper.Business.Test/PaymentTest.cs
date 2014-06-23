@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using WalletHelper.Common;
 using WalletHelper.Entity.Enums;
+using WalletHelper.Interfaces;
 
 namespace WalletHelper.Business.Test
 {
@@ -16,7 +17,7 @@ namespace WalletHelper.Business.Test
         public void SaveErrorTestMethod()
         {
             IResponseBusiness<Entity.Payment> valueReturned = null;
-            IPayment paymentBusiness = new Business.Payment();
+            IDataContract<Entity.Payment> paymentBusiness = new Business.Payment();
 
             Entity.Payment payment = new Entity.Payment()
             {
@@ -28,7 +29,7 @@ namespace WalletHelper.Business.Test
                 User= new Entity.User()
             };
 
-            valueReturned = paymentBusiness.Save(payment);
+            valueReturned = paymentBusiness.Insert(payment);
             Assert.IsTrue(valueReturned.IsError);
         }
 
@@ -38,8 +39,8 @@ namespace WalletHelper.Business.Test
         [TestMethod]
         public void GetPaymentsDayNotNullTestMethod()
         {
-            IList<Entity.Payment> valueReturned = null;
-            IPayment paymentBusiness = new Business.Payment();
+            IEnumerable<Entity.Payment> valueReturned = null;
+            var paymentBusiness = new Business.Payment();
 
             valueReturned = paymentBusiness.GetPaymentsDay();
             Assert.IsNotNull(valueReturned);

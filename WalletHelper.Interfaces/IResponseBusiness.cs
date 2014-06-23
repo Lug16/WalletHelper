@@ -1,47 +1,37 @@
-﻿using WalletHelper.Interfaces;
-namespace WalletHelper.Common
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WalletHelper.Interfaces
 {
     /// <summary>
-    /// Objeto que contiene una respuesta de la capa de negocio.
+    /// Interfaz que ofrece los atributos para las respuestas de la capa de negocio.
     /// </summary>
     /// <typeparam name="T">Entidad a retornar</typeparam>
-    public class ResponseBusiness<T> : IResponseBusiness<T> where T : new()
+    public interface IResponseBusiness<T> where T : new()
     {
-
         /// <summary>
         /// Entidad a retornar
         /// </summary>
         /// <value>
         /// The entity.
         /// </value>
-        public T Entity
-        {
-            get;
-            set;
-        }
-
+        T Entity { get; set; }
         /// <summary>
         /// Indica si se produjo un error
         /// </summary>
         /// <value>
         ///   <c>true</c> si hay error; de lo contrario, <c>false</c>.
         /// </value>
-        public bool IsError
-        {
-            get;
-            set;
-        }
-
+        bool IsError { get; set; }
         /// <summary>
         /// Mensaje del error o vacio si no hay error.
         /// </summary>
         /// <value>
         /// The message.
         /// </value>
-        public string Message
-        {
-            get;
-            set;
-        }
+        string Message { get; set; }
     }
 }

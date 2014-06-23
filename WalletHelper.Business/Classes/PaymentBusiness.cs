@@ -7,27 +7,23 @@ using System.Data.Entity.Validation;
 using WalletHelper.Common;
 using WalletHelper.DataAccess;
 using WalletHelper.Entity.Enums;
+using WalletHelper.Interfaces;
 
 namespace WalletHelper.Business
 {
     /// <summary>
     /// Objeto de negocio Payment
     /// </summary>
-    public class Payment : IPayment
+    public class Payment : IDataContract<Entity.Payment>, IValidate<Entity.Payment>
     {
-        private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages);
+        private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages, new System.Globalization.CultureInfo("es"));
+        private WalletHelperContext ctx = new WalletHelperContext();
 
-        #region Metodos publicos
-        /// <summary>
-        ///  Guarda un ingreso/egreso.
-        /// </summary>
-        /// <param name="payment">Entidad a guardar</param>
-        /// <returns><c>IResponseBusiness<Entity.Payment></c></returns>
-        /// <exception cref="System.ArgumentNullException">payment</exception>
-        [LogException]
-        public IResponseBusiness<Entity.Payment> Save(Entity.Payment payment)   
+        public IResponseBusiness<Entity.Payment> Insert(Entity.Payment entity)
         {
-            if (payment == null)
+            int? id = null;
+
+            if (entity == null)
                 throw new ArgumentNullException("payment");
 
             IResponseBusiness<Entity.Payment> response = new ResponseBusiness<Entity.Payment>()
@@ -36,15 +32,16 @@ namespace WalletHelper.Business
                 IsError = true,
                 Message = string.Empty
             };
-            IResponseValidate validatePayment = ValidatePayment(payment);
+
+            IResponseValidate validatePayment = Validate(entity);
 
             if (validatePayment.IsValid)
             {
-                WalletHelperContext ctx = new WalletHelperContext();
-                ctx.Payments.Add(payment);
+                ctx.Payments.Add(entity);
                 try
                 {
                     ctx.SaveChanges();
+                    id = entity.Id;
                 }
                 catch (DbUpdateConcurrencyException cex)
                 {
@@ -74,7 +71,7 @@ namespace WalletHelper.Business
                 {
                     if (string.IsNullOrEmpty(response.Message))
                     {
-                        response.Entity = payment;
+                        response.Entity = entity;
                         response.IsError = false;
                     }
                     ctx.Dispose();
@@ -86,11 +83,53 @@ namespace WalletHelper.Business
             return response;
         }
 
-        /// <summary>
-        /// Obtiene los ingresos/egresos del dia.
-        /// </summary>
-        /// <returns><c>IList<Entity.Payment></c></returns>
-        public IList<Entity.Payment> GetPaymentsDay()
+        public bool Update(Entity.Payment entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Entity.Payment GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Entity.Payment> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResponseValidate Validate(Entity.Payment entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException("payment");
+
+            IResponseValidate validate = new ResponseValidate();
+            validate.Message = string.Empty;
+
+            if (entity.Date == null)
+                validate.Message += _resourceReacher.GetString("PaymentDateNull");
+            if (string.IsNullOrEmpty(entity.Description))
+                validate.Message += _resourceReacher.GetString("PaymentDescriptionEmpty");
+            if (entity.PaymentMethodDetail == null)
+                validate.Message += _resourceReacher.GetString("PaymentPaymentMethodDetailNull");
+            if (entity.PaymentType <= 0)
+                validate.Message += _resourceReacher.GetString("PaymentPaymentType");
+            if (entity.User == null)
+                validate.Message += _resourceReacher.GetString("PaymentUserNull");
+            if (entity.Value == 0)
+                validate.Message += _resourceReacher.GetString("PaymentValueIsZero");
+
+            validate.IsValid = string.IsNullOrEmpty(validate.Message);
+
+            return validate;
+        }
+
+        public IEnumerable<Entity.Payment> GetPaymentsDay()
         {
             WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.Payment> ret = new List<Entity.Payment>();
@@ -101,7 +140,7 @@ namespace WalletHelper.Business
                             q.Date.Month == DateTime.Now.Month &&
                             q.Date.Year == DateTime.Now.Year
                             select q;
-                ret = query.ToList();
+                ret = query.ToArray();
             }
             finally
             {
@@ -110,23 +149,17 @@ namespace WalletHelper.Business
             return ret;
         }
 
-        /// <summary>
-        /// Obtiene los ingresos/egresos segun los filtros de fecha.
-        /// </summary>
-        /// <param name="begin">Fecha inicial.</param>
-        /// <param name="end">Fecha final.</param>
-        /// <returns><c>IList<Entity.Payment></c></returns>
-        public IList<Entity.Payment> GetPayments(DateTime begin, DateTime end)
+        public IEnumerable<Entity.Payment> GetPayments(DateTime begin, DateTime end)
         {
             WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.Payment> ret = new List<Entity.Payment>();
             try
             {
                 var query = from q in ctx.Payments
-                            where q.Date>= begin &&
+                            where q.Date >= begin &&
                             q.Date <= end
                             select q;
-                ret = query.ToList();
+                ret = query.ToArray();
             }
             finally
             {
@@ -134,43 +167,5 @@ namespace WalletHelper.Business
             }
             return ret;
         }
-        
-        /// <summary>
-        /// Valida un ingreso/egreso
-        /// </summary>
-        /// <param name="payment">Entidad a validar</param>
-        /// <returns>
-        ///   <c>IResponseValidate</c>
-        /// </returns>
-        /// <exception cref="System.ArgumentNullException">payment</exception>
-        public IResponseValidate ValidatePayment(Entity.Payment payment)
-        {
-            if (payment == null)
-                throw new ArgumentNullException("payment");
-
-            IResponseValidate validate = new ResponseValidate();
-            validate.Message = string.Empty;
-
-            if (payment.Date == null)
-                validate.Message += _resourceReacher.GetString("PaymentDateNull");
-            if (string.IsNullOrEmpty(payment.Description))
-                validate.Message += _resourceReacher.GetString("PaymentDescriptionEmpty");
-            if (payment.PaymentMethodDetail == null)
-                validate.Message += _resourceReacher.GetString("PaymentPaymentMethodDetailNull");
-            if (payment.PaymentType <= 0)
-                validate.Message += _resourceReacher.GetString("PaymentPaymentType");
-            if (payment.User == null)
-                validate.Message += _resourceReacher.GetString("PaymentUserNull");
-            if (payment.Value == 0)
-                validate.Message += _resourceReacher.GetString("PaymentValueIsZero");
-
-            validate.IsValid = string.IsNullOrEmpty(validate.Message);
-            
-            return validate;
-        }
-        #endregion
-
-
-       
     }
 }

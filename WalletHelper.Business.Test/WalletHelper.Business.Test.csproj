@@ -74,6 +74,10 @@
       <Project>{489c5e7e-fd2b-4748-be07-81bc822dad27}</Project>
       <Name>WalletHelper.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WalletHelper.Interfaces\WalletHelper.Interfaces.csproj">
+      <Project>{f27d3cff-40ed-4070-830f-36c50e8b9e22}</Project>
+      <Name>WalletHelper.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

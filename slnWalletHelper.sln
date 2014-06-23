@@ -47,6 +47,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Application", "3_Applicat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Multilevel", "4_Multilevel", "{6D183A70-2320-45EE-8876-4FF334B876C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Interfaces", "WalletHelper.Interfaces\WalletHelper.Interfaces.csproj", "{F27D3CFF-40ED-4070-830F-36C50E8B9E22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{7C885744-8B09-481B-AEC1-69F02E9C003B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C885744-8B09-481B-AEC1-69F02E9C003B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C885744-8B09-481B-AEC1-69F02E9C003B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27D3CFF-40ED-4070-830F-36C50E8B9E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27D3CFF-40ED-4070-830F-36C50E8B9E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27D3CFF-40ED-4070-830F-36C50E8B9E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27D3CFF-40ED-4070-830F-36C50E8B9E22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,5 +116,6 @@ Global
 		{5F2295D9-8D3C-4FFD-94D8-DE304C6EC35C} = {387F1824-C144-4046-925A-78F4C2908B81}
 		{489C5E7E-FD2B-4748-BE07-81BC822DAD27} = {6D183A70-2320-45EE-8876-4FF334B876C4}
 		{4E689F23-6499-4505-A00C-18F5F52D767D} = {6D183A70-2320-45EE-8876-4FF334B876C4}
+		{F27D3CFF-40ED-4070-830F-36C50E8B9E22} = {6D183A70-2320-45EE-8876-4FF334B876C4}
 	EndGlobalSection
 EndGlobal
