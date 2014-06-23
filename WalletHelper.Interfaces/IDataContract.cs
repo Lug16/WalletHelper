@@ -10,9 +10,9 @@ namespace WalletHelper.Interfaces
     {
         IResponseBusiness<T> Insert(T entity);
 
-        bool Update(T entity);
+        IResponseBusiness<T> Update(T entity);
 
-        bool Delete(int id);
+        IResponseBusiness<T> Delete(int id);
 
         T GetById(int id);
 

@@ -176,6 +176,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Attributes\DisplayWithResourceAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,12 +194,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\main-logo.png" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -244,12 +245,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="WalletHelper.Web.Frontend.psproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WalletHelper.Business\WalletHelper.Business.csproj">
@@ -259,6 +257,10 @@
     <ProjectReference Include="..\WalletHelper.DataAccess\WalletHelper.DataAccess.csproj">
       <Project>{c3ccc777-fc32-4b11-b63a-bb689cbeea42}</Project>
       <Name>WalletHelper.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WalletHelper.Entity\WalletHelper.Entity.csproj">
+      <Project>{489c5e7e-fd2b-4748-be07-81bc822dad27}</Project>
+      <Name>WalletHelper.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

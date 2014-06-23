@@ -8,6 +8,7 @@ using WalletHelper.Common;
 using WalletHelper.DataAccess;
 using WalletHelper.Entity.Enums;
 using WalletHelper.Interfaces;
+using PostSharp.Extensibility;
 
 namespace WalletHelper.Business
 {
@@ -17,11 +18,11 @@ namespace WalletHelper.Business
     public class Payment : IDataContract<Entity.Payment>, IValidate<Entity.Payment>
     {
         private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages, new System.Globalization.CultureInfo("es"));
-        private WalletHelperContext ctx = new WalletHelperContext();
 
+        [LogException]
         public IResponseBusiness<Entity.Payment> Insert(Entity.Payment entity)
         {
-            int? id = null;
+            WalletHelperContext ctx = new WalletHelperContext();
 
             if (entity == null)
                 throw new ArgumentNullException("payment");
@@ -41,7 +42,6 @@ namespace WalletHelper.Business
                 try
                 {
                     ctx.SaveChanges();
-                    id = entity.Id;
                 }
                 catch (DbUpdateConcurrencyException cex)
                 {
@@ -83,12 +83,12 @@ namespace WalletHelper.Business
             return response;
         }
 
-        public bool Update(Entity.Payment entity)
+        public IResponseBusiness<Entity.Payment> Update(Entity.Payment entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public IResponseBusiness<Entity.Payment> Delete(int id)
         {
             throw new NotImplementedException();
         }
