@@ -31,7 +31,7 @@ namespace WalletHelper.Web.Frontend.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [DisplayWithResource]
         public string UserName { get; set; }
 
         [Required]
