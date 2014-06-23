@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CaptureImageNull" xml:space="preserve">
+    <value>No hay imagen asociada al movimiento\n</value>
+  </data>
+  <data name="CapturePaymentNull" xml:space="preserve">
+    <value>No hay movimiento asociado a la imagen\n</value>
+  </data>
   <data name="PaymentDateNull" xml:space="preserve">
     <value>La Fecha del movimiento no puede estar vacía\n</value>
   </data>

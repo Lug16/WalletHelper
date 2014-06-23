@@ -55,7 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CaptureBusiness.cs" />
     <Compile Include="Classes\PaymentBusiness.cs" />
+    <Compile Include="Classes\PaymentMethodDetailBusiness.cs" />
+    <Compile Include="Classes\StatusBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\ResourceReacher.cs" />
   </ItemGroup>

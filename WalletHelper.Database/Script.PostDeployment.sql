@@ -90514,3 +90514,6 @@ INSERT [dbo].[City] ( [Name], [Country_Id]) VALUES ( N'Gewane', N'ET')
 GO
 INSERT [dbo].[City] ( [Name], [Country_Id]) VALUES ( N'Glenrothes', N'GB')
 GO
+INSERT [dbo].[PaymentMethod] ([Id], [Description]) VALUES (0, N'Método de pago no asignado')
+GO
+INSERT [dbo].[Status] ([Id], [Description]) VALUES (0, N'Estado no asignado')
