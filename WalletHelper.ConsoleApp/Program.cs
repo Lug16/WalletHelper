@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using WalletHelper.Business;
 using WalletHelper.Entity;
 
 namespace WalletHelper.ConsoleApp
@@ -11,12 +15,17 @@ namespace WalletHelper.ConsoleApp
     {
         static void Main(string[] args)
         {
-            WalletHelper.DataAccess.WalletHelperContext context = new DataAccess.WalletHelperContext();
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("es");
 
-            var status = new Status() { Description = "Updated" };
+            Console.WriteLine(Thread.CurrentThread.CurrentCulture);
 
-            context.Status.Add(status);
-            context.SaveChanges();
+            var global = new ResourceReacher(Entity.Enums.ResourceTypes.Web);
+
+            var hello = global.GetString("UserName");
+
+            Console.WriteLine(hello);
+
+            Console.ReadLine();
         }
     }
 }

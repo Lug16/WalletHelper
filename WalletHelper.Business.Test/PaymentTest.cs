@@ -16,7 +16,7 @@ namespace WalletHelper.Business.Test
         public void SaveErrorTestMethod()
         {
             IResponseBusiness<Entity.Payment> valueReturned = null;
-            IPayment paymentBusiness = new Business.Payment(MessageLanguageFrontEnd.Spanish);
+            IPayment paymentBusiness = new Business.Payment();
 
             Entity.Payment payment = new Entity.Payment()
             {
@@ -39,7 +39,7 @@ namespace WalletHelper.Business.Test
         public void GetPaymentsDayNotNullTestMethod()
         {
             IList<Entity.Payment> valueReturned = null;
-            IPayment paymentBusiness = new Business.Payment(MessageLanguageFrontEnd.Spanish);
+            IPayment paymentBusiness = new Business.Payment();
 
             valueReturned = paymentBusiness.GetPaymentsDay();
             Assert.IsNotNull(valueReturned);

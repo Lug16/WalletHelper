@@ -13,11 +13,9 @@ namespace WalletHelper.Business
     /// <summary>
     /// Objeto de negocio Payment
     /// </summary>
-    public class Payment : BaseBusiness, IPayment
+    public class Payment : IPayment
     {
-        #region Constructores
-        public Payment(MessageLanguageFrontEnd language) : base(language) { }
-        #endregion
+        private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages);
 
         #region Metodos publicos
         /// <summary>
@@ -50,27 +48,27 @@ namespace WalletHelper.Business
                 }
                 catch (DbUpdateConcurrencyException cex)
                 {
-                    response.Message = this.ResourceMessages.GetString("PaymentSaveDbUpdateConcurrencyException", this.Culture);
+                    response.Message = _resourceReacher.GetString("PaymentSaveDbUpdateConcurrencyException");
                 }
                 catch (DbUpdateException uex)
                 {
-                    response.Message = this.ResourceMessages.GetString("PaymentSaveDbUpdateException", this.Culture);
+                    response.Message = _resourceReacher.GetString("PaymentSaveDbUpdateException");
                 }
                 catch (DbEntityValidationException eex)
                 {
-                    response.Message = this.ResourceMessages.GetString("PaymentSaveDbEntityValidationException", this.Culture);
+                    response.Message = _resourceReacher.GetString("PaymentSaveDbEntityValidationException");
                 }
                 catch (NotSupportedException sex)
                 {
-                    response.Message = this.ResourceMessages.GetString("PaymentSaveNotSupportedException", this.Culture);
+                    response.Message = _resourceReacher.GetString("PaymentSaveNotSupportedException");
                 }
                 catch (ObjectDisposedException dex)
                 {
-                    response.Message = this.ResourceMessages.GetString("PaymentSaveObjectDisposedException", this.Culture);
+                    response.Message = _resourceReacher.GetString("PaymentSaveObjectDisposedException");
                 }
                 catch (InvalidOperationException iex)
                 {
-                    response.Message = this.ResourceMessages.GetString("PaymentSaveInvalidOperationException", this.Culture);
+                    response.Message = _resourceReacher.GetString("PaymentSaveInvalidOperationException");
                 }
                 finally
                 {
@@ -154,17 +152,17 @@ namespace WalletHelper.Business
             validate.Message = string.Empty;
 
             if (payment.Date == null)
-                validate.Message += this.ResourceMessages.GetString("PaymentDateNull", this.Culture);
+                validate.Message += _resourceReacher.GetString("PaymentDateNull");
             if (string.IsNullOrEmpty(payment.Description))
-                validate.Message += this.ResourceMessages.GetString("PaymentDescriptionEmpty", this.Culture);
+                validate.Message += _resourceReacher.GetString("PaymentDescriptionEmpty");
             if (payment.PaymentMethodDetail == null)
-                validate.Message += this.ResourceMessages.GetString("PaymentPaymentMethodDetailNull", this.Culture);
+                validate.Message += _resourceReacher.GetString("PaymentPaymentMethodDetailNull");
             if (payment.PaymentType <= 0)
-                validate.Message += this.ResourceMessages.GetString("PaymentPaymentType", this.Culture);
+                validate.Message += _resourceReacher.GetString("PaymentPaymentType");
             if (payment.User == null)
-                validate.Message += this.ResourceMessages.GetString("PaymentUserNull", this.Culture);
+                validate.Message += _resourceReacher.GetString("PaymentUserNull");
             if (payment.Value == 0)
-                validate.Message += this.ResourceMessages.GetString("PaymentValueIsZero", this.Culture);
+                validate.Message += _resourceReacher.GetString("PaymentValueIsZero");
 
             validate.IsValid = string.IsNullOrEmpty(validate.Message);
             

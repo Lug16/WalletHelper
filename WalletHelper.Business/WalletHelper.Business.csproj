@@ -55,10 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseBusiness.cs" />
     <Compile Include="Interfaces\IPaymentBusiness.cs" />
     <Compile Include="PaymentBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceReacher.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WalletHellper.Common\WalletHelper.Common.csproj">
@@ -76,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Messages.es.resx" />
+    <EmbeddedResource Include="Resources\Web.en.resx" />
+    <EmbeddedResource Include="Resources\Web.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Web.es.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>WalletHelper.Business.Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

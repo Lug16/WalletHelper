@@ -1,12 +1,9 @@
 ﻿
 namespace WalletHelper.Entity.Enums
 {
-    /// <summary>
-    /// Enumeración que indica el idioma de los mensajes a enviar a la capa de presentación
-    /// </summary>
-    public enum MessageLanguageFrontEnd
+    public enum ResourceTypes
     {
-        English = 0,
-        Spanish = 1
+        Web,
+        Messages
     }
 }
