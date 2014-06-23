@@ -147,6 +147,9 @@
   <data name="PaymentSaveObjectDisposedException" xml:space="preserve">
     <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
+  <data name="PaymentUserInvalid" xml:space="preserve">
+    <value>Operación invalida. El usuario no es correcto.</value>
+  </data>
   <data name="PaymentUserNull" xml:space="preserve">
     <value>El Usuario del movimiento no puede estar vacío\n</value>
   </data>
