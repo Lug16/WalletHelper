@@ -12,7 +12,11 @@ namespace WalletHelper.Business
         private ResourceManager _resourceManager = null;
         private CultureInfo _culture = Thread.CurrentThread.CurrentCulture;
 
-        public ResourceReacher(ResourceTypes resourceType, CultureInfo culture = null)
+        public ResourceReacher(ResourceTypes resourceType):this(resourceType,null)
+        {
+        }
+
+        public ResourceReacher(ResourceTypes resourceType, CultureInfo culture)
         {
             if (culture != null) _culture = culture;
             _selectedBaseName = GetBaseNameString(resourceType);
