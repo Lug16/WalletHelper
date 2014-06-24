@@ -21,5 +21,12 @@ namespace WalletHelper.Web.Frontend
         public static string CaptchaPublicKey { get { return System.Configuration.ConfigurationManager.AppSettings["recaptchaPublicKey"]; } }
 
         public static string CaptchaPrivateKey { get { return System.Configuration.ConfigurationManager.AppSettings["recaptchaPrivateKey"]; } }
+
+        public static string GetResourceString(string resourceStringName)
+        {
+            var reacher = new WalletHelper.Business.ResourceReacher(Entity.Enums.ResourceTypes.Web);
+
+            return reacher.GetString(resourceStringName);
+        }
     }
 }

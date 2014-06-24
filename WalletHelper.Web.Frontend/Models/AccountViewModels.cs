@@ -31,15 +31,15 @@ namespace WalletHelper.Web.Frontend.Models
     public class LoginViewModel
     {
         [Required]
-        [DisplayWithResource]
+        [DisplayWithResource(ResourceFieldName="LoginView.UserName")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [DisplayWithResource(ResourceFieldName = "LoginView.Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [DisplayWithResource(ResourceFieldName = "LoginView.RememberMe")]
         public bool RememberMe { get; set; }
     }
 
