@@ -46,13 +46,13 @@ namespace WalletHelper.Business
         }
 
         [EditorBrowsableAttribute(EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
+        internal static ResourceManager ResourceManager
         {
             get
             {
                 if (object.ReferenceEquals(_resourceManager, null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager(_selectedBaseName, typeof(ResourceReacher).Assembly);
+                    ResourceManager temp = new global::System.Resources.ResourceManager(_selectedBaseName, typeof(ResourceReacher).Assembly);
                     _resourceManager = temp;
                 }
                 return _resourceManager;
