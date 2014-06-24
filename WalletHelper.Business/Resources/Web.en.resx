@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LoginView.DoNotHave" xml:space="preserve">
+    <value>if you don't have a local account.</value>
+  </data>
   <data name="LoginView.Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="LoginView.Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="LoginView.RememberMe" xml:space="preserve">
     <value>Remember me?</value>
+  </data>
+  <data name="LoginView.Subtitle" xml:space="preserve">
+    <value>Use a local account to log in.</value>
+  </data>
+  <data name="LoginView.Title" xml:space="preserve">
+    <value>Log in</value>
   </data>
   <data name="LoginView.UserName" xml:space="preserve">
     <value>User Name</value>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Resources;
 using System.Threading;
@@ -8,8 +9,8 @@ namespace WalletHelper.Business
 {
     public class ResourceReacher
     {
-        private string _selectedBaseName = string.Empty;
-        private ResourceManager _resourceManager = null;
+        private static string _selectedBaseName = string.Empty;
+        private static ResourceManager _resourceManager = null;
         private CultureInfo _culture = Thread.CurrentThread.CurrentCulture;
 
         public ResourceReacher(ResourceTypes resourceType):this(resourceType,null)
@@ -20,18 +21,16 @@ namespace WalletHelper.Business
         {
             if (culture != null) _culture = culture;
             _selectedBaseName = GetBaseNameString(resourceType);
-            _resourceManager = new ResourceManager(_selectedBaseName, typeof(ResourceReacher).Assembly);
         }
 
         public string GetString(string field)
         {
-            return _resourceManager.GetString(field, _culture);
+            return ResourceManager.GetString(field, _culture);
         }
 
-        public static string GetString(string field, CultureInfo info, ResourceTypes baseName)
+        public static string GetString(string field, ResourceTypes baseName)
         {
-            var resourceManager = new ResourceManager(GetBaseNameString(baseName), typeof(ResourceReacher).Assembly);
-            return resourceManager.GetString(field, info);
+            return ResourceManager.GetString(field, Thread.CurrentThread.CurrentCulture);
         }
 
         private static string GetBaseNameString(ResourceTypes resourceType)
@@ -44,6 +43,20 @@ namespace WalletHelper.Business
                     return "WalletHelper.Business.Resources.Messages";
             }
             return string.Empty;
+        }
+
+        [EditorBrowsableAttribute(EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(_resourceManager, null))
+                {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager(_selectedBaseName, typeof(ResourceReacher).Assembly);
+                    _resourceManager = temp;
+                }
+                return _resourceManager;
+            }
         }
     }
 }
