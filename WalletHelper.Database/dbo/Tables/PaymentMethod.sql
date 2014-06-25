@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[PaymentMethod] (
-    [Id]          INT           IDENTITY (1, 1) NOT NULL,
-    [Description] VARCHAR (140) NOT NULL
+    [Id]          INT NOT NULL,
+    [Description] VARCHAR (140) NOT NULL, 
+    CONSTRAINT [PK_PaymentMethod] PRIMARY KEY ([Id])
 );
 
 
