@@ -16,8 +16,8 @@ SET NUMERIC_ROUNDABORT OFF;
 GO
 :setvar DatabaseName "WalletHelper.Authorization.Database"
 :setvar DefaultFilePrefix "WalletHelper.Authorization.Database"
-:setvar DefaultDataPath "c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\"
-:setvar DefaultLogPath "c:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\"
+:setvar DefaultDataPath "C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\"
+:setvar DefaultLogPath "C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\"
 
 GO
 
@@ -90726,6 +90726,6 @@ INSERT [dbo].[City] ( [Name], [Country_Id]) VALUES ( N'Gewane', N'ET')
 GO
 INSERT [dbo].[City] ( [Name], [Country_Id]) VALUES ( N'Glenrothes', N'GB')
 GO
-INSERT [dbo].[PaymentMethod] ([Id], [Description]) VALUES (0, N'Método de pago no asignado')
+INSERT [dbo].[PaymentMethod] ([Id], [Description]) VALUES (0, N'Payment Method N/A')
 GO
-INSERT [dbo].[Status] ([Id], [Description]) VALUES (0, N'Estado no asignado')
+INSERT [dbo].[Status] ([Id], [Description]) VALUES (0, N'Status N/A')
