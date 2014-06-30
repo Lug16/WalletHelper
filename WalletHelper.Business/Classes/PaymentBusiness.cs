@@ -28,7 +28,7 @@ namespace WalletHelper.Business
         public IResponseBusiness<Entity.Payment> Insert(Entity.Payment entity)
         {
             if (entity == null)
-                throw new ArgumentNullException("payment");
+                throw new ArgumentNullException("entity");
 
             IResponseBusiness<Entity.Payment> response = new ResponseBusiness<Entity.Payment>()
             {
@@ -223,7 +223,6 @@ namespace WalletHelper.Business
                 validate.Message += _resourceReacher.GetString("PaymentValueIsZero");
             if (entity.User.Id!=this._user.Id)
                 validate.Message += _resourceReacher.GetString("PaymentUserInvalid");
-
 
             validate.IsValid = string.IsNullOrEmpty(validate.Message);
 

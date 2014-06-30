@@ -129,6 +129,33 @@
   <data name="PaymentDescriptionEmpty" xml:space="preserve">
     <value>La Descripción del movimiento no puede estar vacía\n</value>
   </data>
+  <data name="PaymentMethodDetailNameEmpty" xml:space="preserve">
+    <value>El nombre del método de pago no puede estar vacío\n</value>
+  </data>
+  <data name="PaymentMethodDetailPaymentMethodInvalid" xml:space="preserve">
+    <value>El método de pago no es válido\n</value>
+  </data>
+  <data name="PaymentMethodDetailSaveDbUpdateConcurrencyException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetailUserInvalid" xml:space="preserve">
+    <value>Operación invalida. El usuario no es correcto\n</value>
+  </data>
+  <data name="PaymentMethodDetalSaveDbEntityValidationException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetaulSaveDbUpdateException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetaulSaveInvalidOperationException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetaulSaveNotSupportedException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetaulSaveObjectDisposedException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
   <data name="PaymentPaymentMethodDetailNull" xml:space="preserve">
     <value>El Método del movimiento no puede estar vacío\n</value>
   </data>
@@ -154,7 +181,7 @@
     <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentUserInvalid" xml:space="preserve">
-    <value>Operación invalida. El usuario no es correcto.</value>
+    <value>Operación invalida. El usuario no es correcto\n</value>
   </data>
   <data name="PaymentUserNull" xml:space="preserve">
     <value>El Usuario del movimiento no puede estar vacío\n</value>
