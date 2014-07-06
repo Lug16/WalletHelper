@@ -135,26 +135,26 @@
   <data name="PaymentMethodDetailPaymentMethodInvalid" xml:space="preserve">
     <value>El método de pago no es válido\n</value>
   </data>
+  <data name="PaymentMethodDetailSaveDbEntityValidationException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
   <data name="PaymentMethodDetailSaveDbUpdateConcurrencyException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetailSaveDbUpdateException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetailSaveInvalidOperationException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetailSaveNotSupportedException" xml:space="preserve">
+    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
+  </data>
+  <data name="PaymentMethodDetailSaveObjectDisposedException" xml:space="preserve">
     <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentMethodDetailUserInvalid" xml:space="preserve">
     <value>Operación invalida. El usuario no es correcto\n</value>
-  </data>
-  <data name="PaymentMethodDetalSaveDbEntityValidationException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
-  </data>
-  <data name="PaymentMethodDetaulSaveDbUpdateException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
-  </data>
-  <data name="PaymentMethodDetaulSaveInvalidOperationException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
-  </data>
-  <data name="PaymentMethodDetaulSaveNotSupportedException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
-  </data>
-  <data name="PaymentMethodDetaulSaveObjectDisposedException" xml:space="preserve">
-    <value>Ocurrio un error interno, por favor intentelo de nuevo\n</value>
   </data>
   <data name="PaymentPaymentMethodDetailNull" xml:space="preserve">
     <value>El Método del movimiento no puede estar vacío\n</value>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletHelper.Entity", "WalletHelper.Entity\WalletHelper.Entity.csproj", "{489C5E7E-FD2B-4748-BE07-81BC822DAD27}"
 EndProject
@@ -94,6 +94,7 @@ Global
 		{4E689F23-6499-4505-A00C-18F5F52D767D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E689F23-6499-4505-A00C-18F5F52D767D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C885744-8B09-481B-AEC1-69F02E9C003B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C885744-8B09-481B-AEC1-69F02E9C003B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C885744-8B09-481B-AEC1-69F02E9C003B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C885744-8B09-481B-AEC1-69F02E9C003B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F27D3CFF-40ED-4070-830F-36C50E8B9E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

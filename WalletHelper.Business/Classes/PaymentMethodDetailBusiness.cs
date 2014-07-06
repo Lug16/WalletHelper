@@ -51,7 +51,7 @@ namespace WalletHelper.Business
         /// <returns><c>Interfaces.IResponseBusiness<Entity.PaymentMethodDetail></c></returns>
         /// <exception cref="System.ArgumentNullException">entity</exception>
         [LogException]
-        public Interfaces.IResponseBusiness<Entity.PaymentMethodDetail> Insert(Entity.PaymentMethodDetail entity)
+        public IResponseBusiness<Entity.PaymentMethodDetail> Insert(Entity.PaymentMethodDetail entity)
         {
             if (entity == null)
                 throw new ArgumentNullException("entity");
@@ -75,27 +75,27 @@ namespace WalletHelper.Business
                 }
                 catch (DbUpdateConcurrencyException cex)
                 {
-                    response.Message = _resourceReacher.GetString("PaymentMethodDetaulSaveDbUpdateConcurrencyException");
+                    response.Message = _resourceReacher.GetString("PaymentMethodDetailSaveDbUpdateConcurrencyException");
                 }
                 catch (DbUpdateException uex)
                 {
-                    response.Message = _resourceReacher.GetString("PaymentMethodDetaulSaveDbUpdateException");
+                    response.Message = _resourceReacher.GetString("PaymentMethodDetailSaveDbUpdateException");
                 }
                 catch (DbEntityValidationException eex)
                 {
-                    response.Message = _resourceReacher.GetString("PaymentMethodDetaulSaveDbEntityValidationException");
+                    response.Message = _resourceReacher.GetString("PaymentMethodDetailSaveDbEntityValidationException");
                 }
                 catch (NotSupportedException sex)
                 {
-                    response.Message = _resourceReacher.GetString("PaymentMethodDetaulSaveNotSupportedException");
+                    response.Message = _resourceReacher.GetString("PaymentMethodDetailSaveNotSupportedException");
                 }
                 catch (ObjectDisposedException dex)
                 {
-                    response.Message = _resourceReacher.GetString("PaymentMethodDetaulSaveObjectDisposedException");
+                    response.Message = _resourceReacher.GetString("PaymentMethodDetailSaveObjectDisposedException");
                 }
                 catch (InvalidOperationException iex)
                 {
-                    response.Message = _resourceReacher.GetString("PaymentMethodDetaulSaveInvalidOperationException");
+                    response.Message = _resourceReacher.GetString("PaymentMethodDetailSaveInvalidOperationException");
                 }
                 finally
                 {
