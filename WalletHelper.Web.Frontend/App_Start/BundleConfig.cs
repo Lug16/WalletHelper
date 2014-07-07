@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Threading;
+using System.Web;
 using System.Web.Optimization;
 
 namespace WalletHelper.Web.Frontend
@@ -12,6 +13,7 @@ namespace WalletHelper.Web.Frontend
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/localization/messages_" + Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName + "*").Include(
                         "~/Scripts/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

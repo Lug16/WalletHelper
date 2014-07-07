@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
@@ -20,7 +21,8 @@ namespace WalletHelper.Web.Frontend.Helpers
                                             ID = "recaptcha",
                                             Theme = "clean",
                                             PublicKey = MvcApplication.CaptchaPublicKey,
-                                            PrivateKey = MvcApplication.CaptchaPrivateKey
+                                            PrivateKey = MvcApplication.CaptchaPrivateKey,
+                                            Language=Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName
                                         };
 
             var htmlWriter = new HtmlTextWriter(new StringWriter());

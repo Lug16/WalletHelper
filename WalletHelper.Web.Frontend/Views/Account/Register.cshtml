@@ -2,7 +2,7 @@
 @using WalletHelper.Web.Frontend.Helpers
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = MvcApplication.GetResourceString("Register.Title");
 }
 
 
@@ -11,7 +11,7 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
+    <h4>@MvcApplication.GetResourceString("Register.TitleForm")</h4>
     <hr />
     @Html.ValidationSummary()
     <div class="form-group">
@@ -33,14 +33,14 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.Label("Apuesto que puedes ingresar estas palabras", new { @class = "col-md-2 control-label" })
+        @Html.Label(MvcApplication.GetResourceString("Register.CaptchaMessage"), new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.GenerateCaptcha()
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value="@MvcApplication.GetResourceString("Register.Title")" />
         </div>
     </div>
 }

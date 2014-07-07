@@ -117,6 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangePasswordPartial.ChangePassword" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="ChangePasswordPartial.CurrentPassword" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
+  <data name="ChangePasswordPartial.NewPassword" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="ChangePasswordPartial.NewPasswordConfirm" xml:space="preserve">
+    <value>Confirmar nueva contraseña</value>
+  </data>
+  <data name="ChangePasswordPartial.Title" xml:space="preserve">
+    <value>Has ingresado como </value>
+  </data>
+  <data name="ChangePasswordPartial.TitleForm" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="Error.Message" xml:space="preserve">
+    <value>Un error ocurrio durante la ejecución de la solicitud.</value>
+  </data>
+  <data name="ExternalLoginsListPartial.Title" xml:space="preserve">
+    <value>Utiliza otro servicio para ingresar</value>
+  </data>
+  <data name="Layout.About" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="Layout.Contact" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="LoginPartial.Hello" xml:space="preserve">
+    <value>Hola</value>
+  </data>
+  <data name="LoginPartial.LogIn" xml:space="preserve">
+    <value>Ingresar</value>
+  </data>
+  <data name="LoginPartial.LogOff" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="LoginPartial.Register" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
   <data name="LoginView.DoNotHave" xml:space="preserve">
     <value>si no tienes ninguna cuenta</value>
   </data>
@@ -136,6 +178,24 @@
     <value>Ingreso</value>
   </data>
   <data name="LoginView.UserName" xml:space="preserve">
+    <value>Nombre de Usuario</value>
+  </data>
+  <data name="Register.CaptchaMessage" xml:space="preserve">
+    <value>Apuesto a que puedes ingresar este texto</value>
+  </data>
+  <data name="Register.ConfirmPassword" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="Register.Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Register.Title" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="Register.TitleForm" xml:space="preserve">
+    <value>Crear una cuenta nueva</value>
+  </data>
+  <data name="Register.UserName" xml:space="preserve">
     <value>Nombre de Usuario</value>
   </data>
 </root>

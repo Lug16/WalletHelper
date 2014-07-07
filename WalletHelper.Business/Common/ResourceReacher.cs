@@ -13,7 +13,8 @@ namespace WalletHelper.Business
         private static ResourceManager _resourceManager = null;
         private CultureInfo _culture = Thread.CurrentThread.CurrentCulture;
 
-        public ResourceReacher(ResourceTypes resourceType):this(resourceType,null)
+        public ResourceReacher(ResourceTypes resourceType)
+            : this(resourceType, null)
         {
         }
 
@@ -25,12 +26,26 @@ namespace WalletHelper.Business
 
         public string GetString(string field)
         {
-            return ResourceManager.GetString(field, _culture);
+            try
+            {
+                return ResourceManager.GetString(field, _culture);
+            }
+            catch (MissingManifestResourceException miss)
+            {
+                return ResourceManager.GetString(field, new CultureInfo("en"));
+            }
         }
 
         public static string GetString(string field, ResourceTypes baseName)
         {
-            return ResourceManager.GetString(field, Thread.CurrentThread.CurrentCulture);
+            try
+            {
+                return ResourceManager.GetString(field, Thread.CurrentThread.CurrentCulture);
+            }
+            catch (MissingManifestResourceException miss)
+            {
+                return ResourceManager.GetString(field, new CultureInfo("en"));
+            }
         }
 
         private static string GetBaseNameString(ResourceTypes resourceType)
