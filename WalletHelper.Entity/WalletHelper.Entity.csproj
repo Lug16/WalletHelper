@@ -58,6 +58,7 @@
     <Compile Include="Classes\NotificationType.cs" />
     <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\PaymentMethodDetail.cs" />
+    <Compile Include="Classes\PaymentValue.cs" />
     <Compile Include="Classes\Recording.cs" />
     <Compile Include="Classes\RefactorLog.cs" />
     <Compile Include="Classes\Schedule.cs" />

@@ -39,11 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\IPayment.cs" />
     <Compile Include="IDataContract.cs" />
     <Compile Include="IResponseBusiness.cs" />
     <Compile Include="IResponseValidate.cs" />
     <Compile Include="IValidate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WalletHelper.Entity\WalletHelper.Entity.csproj">
+      <Project>{489c5e7e-fd2b-4748-be07-81bc822dad27}</Project>
+      <Name>WalletHelper.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

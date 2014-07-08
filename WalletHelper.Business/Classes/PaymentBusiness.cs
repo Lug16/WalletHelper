@@ -14,7 +14,7 @@ namespace WalletHelper.Business
     /// <summary>
     /// Objeto de negocio Payment
     /// </summary>
-    public class Payment : IDataContract<Entity.Payment>, IValidate<Entity.Payment>
+    public class Payment : IDataContract<Entity.Payment>, IValidate<Entity.Payment>,IPayment
     {
         private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages);
         private Entity.User _user = new Entity.User();
@@ -266,6 +266,93 @@ namespace WalletHelper.Business
             finally
             {
                 ctx.Dispose();
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// Obtiene los movimientos según el filtro PaymentValues.
+        /// </summary>
+        /// <param name="paymentValues">Filtro aplicar a los movimientos.</param>
+        /// <returns></returns>
+        public IEnumerable<Entity.PaymentValue> GetPaymentValues(PaymentValues paymentValues)
+        {
+            WalletHelperContext ctx = new WalletHelperContext();
+            IList<Entity.PaymentValue> ret = new List<Entity.PaymentValue>();
+            try
+            {
+                switch(paymentValues)
+                {
+                    case PaymentValues.Day:
+                        var query1 = from q in ctx.Payments
+                                    where q.User.Id == this._user.Id &&
+                                    q.Date.Day == DateTime.Now.Day &&
+                                    q.Date.Month == DateTime.Now.Month &&
+                                    q.Date.Year == DateTime.Now.Year
+                                    group q by q.PaymentType into g
+                                    select new Entity.PaymentValue
+                                    {
+                                        PaymentType = (PaymentTypes)g.Key,
+                                        Value = g.Sum(v => v.Value)
+                                    };
+                        ret = query1.ToArray();
+                        break;
+                    case PaymentValues.Month:
+                        var query2 = from q in ctx.Payments
+                                    where q.User.Id == this._user.Id &&
+                                    q.Date.Month == DateTime.Now.Month &&
+                                    q.Date.Year == DateTime.Now.Year
+                                    group q by q.PaymentType into g
+                                    select new Entity.PaymentValue
+                                    {
+                                        PaymentType = (PaymentTypes)g.Key,
+                                        Value = g.Sum(v => v.Value)
+                                    };
+                        ret = query2.ToArray();
+                        break;
+                    case PaymentValues.Quarter:
+                         var query3 = from q in ctx.Payments
+                                    where q.User.Id == this._user.Id &&
+                                    (q.Date <= DateTime.Now.Date && q.Date >= DateTime.Now.AddMonths(-3).Date)
+                                    group q by q.PaymentType into g
+                                    select new Entity.PaymentValue
+                                    {
+                                        PaymentType = (PaymentTypes)g.Key,
+                                        Value = g.Sum(v => v.Value)
+                                    };
+                        ret = query3.ToArray();
+                        break;
+                    case PaymentValues.Semester:
+                        var query4 = from q in ctx.Payments
+                                     where q.User.Id == this._user.Id &&
+                                     (q.Date <= DateTime.Now.Date && q.Date >= DateTime.Now.AddMonths(-6).Date)
+                                     group q by q.PaymentType into g
+                                     select new Entity.PaymentValue
+                                     {
+                                         PaymentType = (PaymentTypes)g.Key,
+                                         Value = g.Sum(v => v.Value)
+                                     };
+                        ret = query4.ToArray();
+                        break;
+                    case PaymentValues.Annual:
+                        var query5 = from q in ctx.Payments
+                                     where q.User.Id == this._user.Id &&
+                                     (q.Date <= DateTime.Now.Date && q.Date >= DateTime.Now.AddMonths(-12).Date)
+                                     group q by q.PaymentType into g
+                                     select new Entity.PaymentValue
+                                     {
+                                         PaymentType = (PaymentTypes)g.Key,
+                                         Value = g.Sum(v => v.Value)
+                                     };
+                        ret = query5.ToArray();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            finally
+            {
+                ctx.Dispose();   
             }
             return ret;
         }
