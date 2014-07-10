@@ -52,6 +52,19 @@ namespace WalletHelper.Business.Test
         #endregion
 
         /// <summary>
+        /// Se prueba que siempre se devuelva al menos un item en la lista, filtrado por día.
+        /// </summary>
+        [TestMethod]
+        public void GetPaymentValuesDayTestMethod()
+        {
+            IEnumerable<Entity.PaymentValue> valueReturned = null;
+            IPayment paymentBusiness = new Payment(new Entity.User() { Id = 12 });
+
+            valueReturned = paymentBusiness.GetPaymentValues(PaymentValues.Day);
+            Assert.IsNotNull(valueReturned);
+        }
+
+        /// <summary>
         /// Se prueba que se devuelva un error en el método Insert.
         /// </summary>
         [TestMethod]
