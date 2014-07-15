@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using WalletHelper.Common;
 using WalletHelper.Entity.Enums;
 using WalletHelper.Interfaces;
 
@@ -58,9 +59,14 @@ namespace WalletHelper.Business.Test
         public void GetPaymentValuesDayTestMethod()
         {
             IEnumerable<Entity.PaymentValue> valueReturned = null;
-            IPayment paymentBusiness = new Payment(new Entity.User() { Id = 12 });
+            Payment paymentBusiness = new Payment(new Entity.User() { Id = 12 });
+            var pagedConfig = new PagedQueryObject()
+            {
+                Page = 1,
+                Size = 20
+            };
 
-            valueReturned = paymentBusiness.GetPaymentValues(PaymentValues.Day);
+            valueReturned = paymentBusiness.GetPaymentValues(PaymentValues.Day, pagedConfig);
             Assert.IsNotNull(valueReturned);
         }
 
@@ -95,8 +101,13 @@ namespace WalletHelper.Business.Test
         {
             IEnumerable<Entity.Payment> valueReturned = null;
             var paymentBusiness = new Business.Payment(new Entity.User());
+            var pagedConfig = new PagedQueryObject()
+            {
+                Page = 1,
+                Size = 20
+            };
 
-            valueReturned = paymentBusiness.GetPaymentsDay();
+            valueReturned = paymentBusiness.GetPaymentsDay(pagedConfig);
             Assert.IsNotNull(valueReturned);
         }
 

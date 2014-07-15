@@ -8,13 +8,14 @@ using WalletHelper.Common;
 using WalletHelper.DataAccess;
 using WalletHelper.Entity.Enums;
 using WalletHelper.Interfaces;
+using WalletHelper.Common.ExtensionMethod;
 
 namespace WalletHelper.Business
 {
     /// <summary>
     /// Objeto de negocio Payment
     /// </summary>
-    public class Payment : IDataContract<Entity.Payment>, IValidate<Entity.Payment>,IPayment
+    public class Payment : IDataContract<Entity.Payment>, IValidate<Entity.Payment>//,IPayment
     {
         private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages);
         private Entity.User _user = new Entity.User();
@@ -191,9 +192,27 @@ namespace WalletHelper.Business
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Obtiene un movimiento especifico
+        /// </summary>
+        /// <param name="id">ID del movimiento a obtener</param>
+        /// <returns>Entidad <c>Entity.Payment</c>, sino se encuentra entidad a retornar devuelve Null</returns>
         public Entity.Payment GetById(int id)
         {
-            throw new NotImplementedException();
+            WalletHelperContext ctx = new WalletHelperContext();
+            Entity.Payment ret = null;
+            try
+            {
+                var query = from q in ctx.Payments
+                            where q.Id == id
+                            select q;
+                ret = query.FirstOrDefault();
+            }
+            finally
+            {
+                ctx.Dispose();
+            }
+            return ret;
         }
 
         public IEnumerable<Entity.Payment> GetAll()
@@ -229,7 +248,12 @@ namespace WalletHelper.Business
             return validate;
         }
 
-        public IEnumerable<Entity.Payment> GetPaymentsDay()
+        /// <summary>
+        /// Obtiene los movimientos del día.
+        /// </summary>
+        /// <param name="configPage">Configuración de la paginación.</param>
+        /// <returns></returns>
+        public IEnumerable<Entity.Payment> GetPaymentsDay(PagedQueryObject configPage)
         {
             WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.Payment> ret = new List<Entity.Payment>();
@@ -241,7 +265,7 @@ namespace WalletHelper.Business
                             q.Date.Month == DateTime.Now.Month &&
                             q.Date.Year == DateTime.Now.Year
                             select q;
-                ret = query.ToArray();
+                ret = query.Page(configPage).ToArray();
             }
             finally
             {
@@ -250,7 +274,14 @@ namespace WalletHelper.Business
             return ret;
         }
 
-        public IEnumerable<Entity.Payment> GetPayments(DateTime begin, DateTime end)
+        /// <summary>
+        /// Obtiene los movimientos según un rango de fechas.
+        /// </summary>
+        /// <param name="begin">Fecha inicial.</param>
+        /// <param name="end">Fecha final.</param>
+        /// <param name="configPage">Configuración de la paginación.</param>
+        /// <returns></returns>
+        public IEnumerable<Entity.Payment> GetPayments(DateTime begin, DateTime end, PagedQueryObject configPage)
         {
             WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.Payment> ret = new List<Entity.Payment>();
@@ -261,7 +292,7 @@ namespace WalletHelper.Business
                             q.Date >= begin &&
                             q.Date <= end
                             select q;
-                ret = query.ToArray();
+                ret = query.Page(configPage).ToArray();
             }
             finally
             {
@@ -274,8 +305,9 @@ namespace WalletHelper.Business
         /// Obtiene los movimientos según el filtro PaymentValues.
         /// </summary>
         /// <param name="paymentValues">Filtro aplicar a los movimientos.</param>
+        /// <param name="configPage">Configuración de la paginación.</param>
         /// <returns></returns>
-        public IEnumerable<Entity.PaymentValue> GetPaymentValues(PaymentValues paymentValues)
+        public IEnumerable<Entity.PaymentValue> GetPaymentValues(PaymentValues paymentValues, PagedQueryObject configPage)
         {
             WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.PaymentValue> ret = new List<Entity.PaymentValue>();
@@ -303,7 +335,7 @@ namespace WalletHelper.Business
                                 PaymentType = (PaymentTypes)g.Key,
                                 Value = g.Sum(v => v.Value)
                             };
-                ret = query.ToArray();
+                ret = query.Page(configPage).ToArray();
             }
             finally
             {
