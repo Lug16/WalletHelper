@@ -15,15 +15,9 @@ namespace WalletHelper.Business
     /// <summary>
     /// Objeto de negocio Payment
     /// </summary>
-    public class Payment : IDataContract<Entity.Payment>, IValidate<Entity.Payment>//,IPayment
+    public class Payment : BaseBusiness,IDataContract<Entity.Payment>, IValidate<Entity.Payment>//,IPayment
     {
-        private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages);
-        private Entity.User _user = new Entity.User();
-
-        public Payment(Entity.User user)
-        {
-            this._user = user;
-        }
+        public Payment(Entity.User user) : base(user) { }
 
         [LogException]
         public IResponseBusiness<Entity.Payment> Insert(Entity.Payment entity)
@@ -42,11 +36,10 @@ namespace WalletHelper.Business
 
             if (validatePayment.IsValid)
             {
-                WalletHelperContext ctx = new WalletHelperContext();
-                ctx.Payments.Add(entity);
+                _context.Payments.Add(entity);
                 try
                 {
-                    ctx.SaveChanges();
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException cex)
                 {
@@ -79,7 +72,6 @@ namespace WalletHelper.Business
                         response.Entity = entity;
                         response.IsError = false;
                     }
-                    ctx.Dispose();
                 }
             }
             else
@@ -105,18 +97,17 @@ namespace WalletHelper.Business
                 IsError = true,
                 Message = string.Empty
             };
-            WalletHelperContext ctx = new WalletHelperContext();
             Entity.Payment payment = null;
 
             if (capture.Payment == null) //Se crea Payment con valores por defecto
             {
                 capture.Payment = new Entity.Payment(); // Se instancia Payment para que la validación de la captura no de error por la falta de Payment
-                Business.Capture captureBusiness = new Business.Capture();
+                Business.Capture captureBusiness = new Business.Capture(_user);
                 IResponseValidate validateCapture = captureBusiness.Validate(capture);
                 if (validateCapture.IsValid)
                 {
-                    PaymentMethodDetail paymentMethodDetailBusiness = new PaymentMethodDetail(this._user);
-                    Status statusBusiness = new Status();
+                    PaymentMethodDetail paymentMethodDetailBusiness = new PaymentMethodDetail(this._user, _context);
+                    Status statusBusiness = new Status(_user, _context);
 
                     payment = new Entity.Payment();
                     payment.Date = DateTime.Now;
@@ -130,7 +121,7 @@ namespace WalletHelper.Business
                     payment.Captures.Add(capture);
                     capture.Payment = payment;
                     
-                    ctx.Payments.Add(payment);
+                    _context.Payments.Add(payment);
                 }
                 else
                     response.Message = validateCapture.Message;
@@ -138,12 +129,12 @@ namespace WalletHelper.Business
             else
             {
                 payment = capture.Payment;
-                ctx.Captures.Add(capture);
+                _context.Captures.Add(capture);
             }
 
             try
             {
-                ctx.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbUpdateConcurrencyException cex)
             {
@@ -176,7 +167,6 @@ namespace WalletHelper.Business
                     response.Entity = payment;
                     response.IsError = false;
                 }
-                ctx.Dispose();
             }
 
             return response;
@@ -199,19 +189,11 @@ namespace WalletHelper.Business
         /// <returns>Entidad <c>Entity.Payment</c>, sino se encuentra entidad a retornar devuelve Null</returns>
         public Entity.Payment GetById(int id)
         {
-            WalletHelperContext ctx = new WalletHelperContext();
             Entity.Payment ret = null;
-            try
-            {
-                var query = from q in ctx.Payments
-                            where q.Id == id
-                            select q;
-                ret = query.FirstOrDefault();
-            }
-            finally
-            {
-                ctx.Dispose();
-            }
+            var query = from q in _context.Payments
+                        where q.Id == id
+                        select q;
+            ret = query.FirstOrDefault();
             return ret;
         }
 
@@ -255,22 +237,14 @@ namespace WalletHelper.Business
         /// <returns></returns>
         public IEnumerable<Entity.Payment> GetPaymentsDay(PagedQueryObject configPage)
         {
-            WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.Payment> ret = new List<Entity.Payment>();
-            try
-            {
-                var query = from q in ctx.Payments
-                            where q.User.Id == this._user.Id &&
-                            q.Date.Day == DateTime.Now.Day &&
-                            q.Date.Month == DateTime.Now.Month &&
-                            q.Date.Year == DateTime.Now.Year
-                            select q;
-                ret = query.Page(configPage).ToArray();
-            }
-            finally
-            {
-                ctx.Dispose();
-            }
+            var query = from q in _context.Payments
+                        where q.User.Id == this._user.Id &&
+                        q.Date.Day == DateTime.Now.Day &&
+                        q.Date.Month == DateTime.Now.Month &&
+                        q.Date.Year == DateTime.Now.Year
+                        select q;
+            ret = query.Page(configPage).ToArray();
             return ret;
         }
 
@@ -283,21 +257,13 @@ namespace WalletHelper.Business
         /// <returns></returns>
         public IEnumerable<Entity.Payment> GetPayments(DateTime begin, DateTime end, PagedQueryObject configPage)
         {
-            WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.Payment> ret = new List<Entity.Payment>();
-            try
-            {
-                var query = from q in ctx.Payments
-                            where q.User.Id == this._user.Id && 
-                            q.Date >= begin &&
-                            q.Date <= end
-                            select q;
-                ret = query.Page(configPage).ToArray();
-            }
-            finally
-            {
-                ctx.Dispose();
-            }
+            var query = from q in _context.Payments
+                        where q.User.Id == this._user.Id &&
+                        q.Date >= begin &&
+                        q.Date <= end
+                        select q;
+            ret = query.Page(configPage).ToArray();
             return ret;
         }
 
@@ -309,7 +275,6 @@ namespace WalletHelper.Business
         /// <returns></returns>
         public IEnumerable<Entity.PaymentValue> GetPaymentValues(PaymentValues paymentValues, PagedQueryObject configPage)
         {
-            WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.PaymentValue> ret = new List<Entity.PaymentValue>();
             DateTime day = DateTime.Now.Date;
             DateTime week = DateTime.Now.AddDays(-7).Date;
@@ -318,29 +283,22 @@ namespace WalletHelper.Business
             DateTime semester = DateTime.Now.AddMonths(-6).Date;
             DateTime annual = DateTime.Now.AddYears(-1).Date;
 
-            try
-            {
-                var query = from q in ctx.Payments
-                            where q.User.Id == this._user.Id &&
-                            (q.Date >= (paymentValues == PaymentValues.Month ? month :
-                                        paymentValues == PaymentValues.Quarter ? quarter :
-                                        paymentValues == PaymentValues.Semester ? semester :
-                                        paymentValues == PaymentValues.Week ? week :
-                                        paymentValues == PaymentValues.Annual ? annual :
-                                        day) &&
-                              q.Date <= day)
-                            group q by q.PaymentType into g
-                            select new Entity.PaymentValue
-                            {
-                                PaymentType = (PaymentTypes)g.Key,
-                                Value = g.Sum(v => v.Value)
-                            };
-                ret = query.Page(configPage).ToArray();
-            }
-            finally
-            {
-                ctx.Dispose();   
-            }
+            var query = from q in _context.Payments
+                        where q.User.Id == this._user.Id &&
+                        (q.Date >= (paymentValues == PaymentValues.Month ? month :
+                                    paymentValues == PaymentValues.Quarter ? quarter :
+                                    paymentValues == PaymentValues.Semester ? semester :
+                                    paymentValues == PaymentValues.Week ? week :
+                                    paymentValues == PaymentValues.Annual ? annual :
+                                    day) &&
+                          q.Date <= day)
+                        group q by q.PaymentType into g
+                        select new Entity.PaymentValue
+                        {
+                            PaymentType = (PaymentTypes)g.Key,
+                            Value = g.Sum(v => v.Value)
+                        };
+            ret = query.Page(configPage).ToArray();
             return ret;
         }
     }

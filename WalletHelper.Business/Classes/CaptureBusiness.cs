@@ -9,9 +9,9 @@ using WalletHelper.Interfaces;
 
 namespace WalletHelper.Business
 {
-    public class Capture:IValidate<Entity.Capture>
+    public class Capture : BaseBusiness, IValidate<Entity.Capture>
     {
-        private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages);
+        public Capture(Entity.User user) : base(user) { }
 
         public IResponseValidate Validate(Entity.Capture entity)
         {

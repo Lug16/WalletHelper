@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BaseBusiness.cs" />
     <Compile Include="Classes\CaptureBusiness.cs" />
     <Compile Include="Classes\PaymentBusiness.cs" />
     <Compile Include="Classes\PaymentMethodDetailBusiness.cs" />

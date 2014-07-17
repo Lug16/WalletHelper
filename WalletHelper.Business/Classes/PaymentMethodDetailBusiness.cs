@@ -11,15 +11,11 @@ using WalletHelper.Interfaces;
 
 namespace WalletHelper.Business
 {
-    public class PaymentMethodDetail: IDataContract<Entity.PaymentMethodDetail>, IValidate<Entity.PaymentMethodDetail>
+    public class PaymentMethodDetail : BaseBusiness,IDataContract<Entity.PaymentMethodDetail>, IValidate<Entity.PaymentMethodDetail>
     {
-        private ResourceReacher _resourceReacher = new ResourceReacher(ResourceTypes.Messages);
-        Entity.User _user = new Entity.User();
+        public PaymentMethodDetail(Entity.User user) : base(user) { }
 
-        public PaymentMethodDetail(Entity.User user)
-        {
-            this._user = user;
-        }
+        internal PaymentMethodDetail(Entity.User user, WalletHelperContext context): base(user, context) { }
 
         /// <summary>
         /// Obtiene el detalle del método de pago por defecto de un usuario. Método de pago con ID=0.
@@ -27,20 +23,12 @@ namespace WalletHelper.Business
         /// <returns></returns>
         public Entity.PaymentMethodDetail GetDefault()
         {
-            WalletHelperContext ctx = new WalletHelperContext();
             Entity.PaymentMethodDetail ret = null;
-            try
-            {
-                var query = from q in ctx.PaymentMethodDetails
-                            where q.User.Id == this._user.Id &&
-                            q.PaymentMethodId == 0 // TODO No debe ir este cero quemado
-                            select q;
-                ret = query.FirstOrDefault();
-            }
-            finally
-            {
-                ctx.Dispose();
-            }
+            var query = from q in _context.PaymentMethodDetails
+                        where q.User.Id == this._user.Id &&
+                        q.PaymentMethodId == 0 // TODO No debe ir este cero quemado
+                        select q;
+            ret = query.FirstOrDefault();
             return ret;
         }
 
@@ -67,11 +55,10 @@ namespace WalletHelper.Business
 
             if (validatePayment.IsValid)
             {
-                WalletHelperContext ctx = new WalletHelperContext();
-                ctx.PaymentMethodDetails.Add(entity);
+                _context.PaymentMethodDetails.Add(entity);
                 try
                 {
-                    ctx.SaveChanges();
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException cex)
                 {
@@ -104,7 +91,6 @@ namespace WalletHelper.Business
                         response.Entity = entity;
                         response.IsError = false;
                     }
-                    ctx.Dispose();
                 }
             }
             else
@@ -130,20 +116,12 @@ namespace WalletHelper.Business
         /// <returns><c>Entity.PaymentMethodDetail</c></returns>
         public Entity.PaymentMethodDetail GetById(int id)
         {
-            WalletHelperContext ctx = new WalletHelperContext();
             Entity.PaymentMethodDetail ret = null;
-            try
-            {
-                var query = from q in ctx.PaymentMethodDetails
-                            where q.UserId == this._user.Id &&
-                            q.Id == id
-                            select q;
-                ret = query.FirstOrDefault();
-            }
-            finally
-            {
-                ctx.Dispose();
-            }
+            var query = from q in _context.PaymentMethodDetails
+                        where q.UserId == this._user.Id &&
+                        q.Id == id
+                        select q;
+            ret = query.FirstOrDefault();
             return ret;
         }
 
@@ -153,19 +131,11 @@ namespace WalletHelper.Business
         /// <returns><c>IEnumerable<Entity.PaymentMethodDetail></c></returns>
         public IEnumerable<Entity.PaymentMethodDetail> GetAll()
         {
-            WalletHelperContext ctx = new WalletHelperContext();
             IList<Entity.PaymentMethodDetail> ret = new List<Entity.PaymentMethodDetail>();
-            try
-            {
-                var query = from q in ctx.PaymentMethodDetails
-                            where q.UserId == this._user.Id
-                            select q;
-                ret = query.ToArray();
-            }
-            finally
-            {
-                ctx.Dispose();
-            }
+            var query = from q in _context.PaymentMethodDetails
+                        where q.UserId == this._user.Id
+                        select q;
+            ret = query.ToArray();
             return ret;
         }
 
